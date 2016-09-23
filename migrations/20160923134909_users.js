@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
         table.integer('zip');
         table.string('email');
         table.string('pic_url');
+        table.integer('event_id').references('id').inTable('event')
     })
 };
 
