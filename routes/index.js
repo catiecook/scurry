@@ -35,13 +35,15 @@ router.get('/create-activity', function(req, res, next) {
     title: 'Scurry' });
 });
 
+//initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
   res.render('scurry-activity', {
     title: 'Scurry' });
 });
 
+//when no/next button is chosen the first time, it will route to this
 router.get('/scurry-activity/:id', function(req, res, next) {
-  res.render('activity', {
+  res.render('scurry-activity', {
     title: 'Scurry' });
 });
 
