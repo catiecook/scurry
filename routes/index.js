@@ -14,7 +14,6 @@ router.get('/login', function(req, res, next) {
     title: 'Scurry' });
 });
 
-
 router.get('/register', function(req, res, next) {
   res.render('register', {
     title: 'Scurry' });
@@ -22,6 +21,11 @@ router.get('/register', function(req, res, next) {
 
 router.get('/create-profile', function(req, res, next) {
   res.render('create-profile', {
+    title: 'Scurry' });
+});
+
+router.get('/dashboard', function(req, res, next) {
+  res.render('dashboard', {
     title: 'Scurry' });
 });
 

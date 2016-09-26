@@ -26,6 +26,10 @@ build/Release
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
 node_modules
 .env
+config.js
 
 # Debug log from npm
 npm-debug.log
+
+
+# Variables
