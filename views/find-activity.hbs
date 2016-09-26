@@ -1,0 +1,34 @@
+<div class='container-fliud'>
+  <div class="card entry">
+    <div class="card-block">
+
+      <h3 class="card-title text-uppercase">scurry</h3>
+      <br>
+      <h5 class="card-text entry">Find Activity: </h5>
+      <br>
+
+      <form action='/search' method='post'>
+        <div class="form-group">
+         <label for="exampleSelect2">Choose a category</label>
+         <select class="form-control" id="category" name='category' required>
+           <option>Select One</option>
+           <option>Hike</option>
+           <option>Snow</option>
+           <option>Bike</option>
+           <option>Run</option>
+         </select>
+       </div>
+        <div class="form-group">
+          <label for="date">When</label>
+          <input type="date" class="form-control" name='date' placeholder="mm/dd/yyyy">
+        </div>
+
+        <button type='submit' class="btn btn-primary">Search</button>
+      </form>
+
+    </div>
+  </div>
+  <span class='other'><p>Want to create an event? <a href="/create-activity">Create Activity...</a>
+  </span>
+
+</div>

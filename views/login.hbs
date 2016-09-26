@@ -1,0 +1,27 @@
+<div class='container-fliud'>
+  <div class="card entry">
+    <div class="card-block">
+
+      <h3 class="card-title text-uppercase">scurry</h3>
+      <br>
+      <h5 class="card-text entry">Login: </h5>
+      <br>
+
+      <form action='/login' method='post'>
+        <div class='form-group'>
+          <label for="email">Username</label>
+          <input type='text' class='form-control' name='username' placeholder="Username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name='password' placeholder="Password">
+        </div>
+
+        <button type='submit' class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+  <span class='other'><p>Don't have an account? <a href="/register">Register...</a>
+  </span>
+
+</div>

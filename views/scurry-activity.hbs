@@ -1,0 +1,36 @@
+<div class='container-fliud'>
+  <div class="card entry">
+    <div class="card-block">
+
+      <h3 class="card-title text-uppercase">scurry</h3>
+      <br>
+      <h5 class="card-text entry">Hiking{{event}}</h5>
+      <br>
+
+      <form action='/scurry-activity' method='post'>
+        <div class="form-group">
+         <label for="exampleSelect2">Choose a category</label>
+         <select class="form-control" id="category" name='category' required>
+           <option>Select One</option>
+           <option>Hike</option>
+           <option>Snow</option>
+           <option>Bike</option>
+           <option>Run</option>
+         </select>
+       </div>
+        <div>
+          <h5>When:</h5>
+            <p>Friday September 30th, 2016</p>
+        </div>
+
+        <span class='yesNo'><button type='no' class="btn btn-primary">No</button>
+        <button type='yes' class="btn btn-primary">yes</button></span>
+
+      </form>
+
+    </div>
+  </div>
+  <span class='other'><p>Want to create an activity? <a href="/create-activity">Create Activity...</a>
+  </span>
+
+</div>
