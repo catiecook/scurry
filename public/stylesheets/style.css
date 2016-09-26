@@ -38,6 +38,10 @@ a {
   text-align: center;
 }
 
+.div-card{
+  margin-top: 10em;
+}
+
 .card-text{
   text-align: center;
 }
@@ -55,6 +59,8 @@ a {
   color: antiquewhite;
 }
 
+/*Index page*/
+
 .carousel-control{
   opacity: 0;
 }
@@ -65,7 +71,6 @@ justify-content: center;
 }
 
 #login{
- margin-right: 5em;
 }
 
 /*Dashboard*/

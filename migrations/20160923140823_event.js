@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         table.increments();
         table.string('title')
         table.integer('activity_id').references('id').inTable('activity').onDelete('CASCADE');
-        table.integer('user_id').references('id').inTable('users').onDelete('CASCADE');
+        table.integer('admin_id').references('id').inTable('users').onDelete('CASCADE');
         table.string('description');
         table.string('location');
         table.dateTime('when');
