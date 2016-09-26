@@ -6,8 +6,9 @@ var query = require('../database/query');
 // ******* GETS **********
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Scurry' });
+  res.render('index' );
 });
+
 
 router.get('/login', function(req, res, next) {
   res.render('login', {
