@@ -47,10 +47,9 @@ a {
 }
 
 .card {
-  height: 75vh;
-  /*padding: 0 5% 5% 5%;
-  width: 60vw;*/
-}*/
+  padding: 0 5% 5% 5%;
+  width: 60vw;
+}
 
 .btn {
   margin-top: 3%;
@@ -83,6 +82,9 @@ justify-content: center;
 }
 .card-block{
   text-align: center;
+}
+.dashboard-card{
+  height: 75vh;
 }
 
 .dashboard-h2{
