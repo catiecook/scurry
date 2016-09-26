@@ -38,6 +38,10 @@ a {
   text-align: center;
 }
 
+.card-text{
+  text-align: center;
+}
+
 .card {
   padding: 0 5% 5% 5%;
   width: 60vw;
@@ -49,4 +53,17 @@ a {
 
 .other {
   color: antiquewhite;
+}
+
+.carousel-control{
+  opacity: 0;
+}
+
+.home-button{
+  display: flex;
+justify-content: center;
+}
+
+#login{
+ margin-right: 5em;
 }
