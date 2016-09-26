@@ -5,10 +5,10 @@ $('dashboard.hbs').ready(function(e) {
   let weatherAPI = weatherAPI;
   let $query /* pull in zipcode or city,state from user info with query */
 
-  let $url = $urlBase + weatherAPI + '/adfd7dc0d7a5f2f7/forecast/q/80211.json';
+  let $url = $urlBase + '/adfd7dc0d7a5f2f7/forecast/q/80211.json';
 
   $get($url).then(function(data){
-    console.log(data);
+    console.log(data.forecast);
     //set up results
     let $results = $('<div />', {
       "class": 'card-text'
