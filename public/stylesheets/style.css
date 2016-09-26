@@ -67,3 +67,20 @@ justify-content: center;
 #login{
  margin-right: 5em;
 }
+
+/*Dashboard*/
+
+.dasboardbox{
+  padding: 2em;
+  background-color: white;
+}
+.card-block{
+  text-align: center;
+}
+.dashboard-card{
+  height: 75vh;
+}
+
+.dashboard-h2{
+text-align: center;
+}
