@@ -6,7 +6,7 @@ var query = require('../database/query');
 // ******* GETS **********
 
 router.get('/', function(req, res, next) {
-  res.render('homepage', { title: 'Scurry' });
+  res.render('index' );
 });
 
 
