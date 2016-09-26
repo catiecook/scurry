@@ -38,14 +38,19 @@ a {
   text-align: center;
 }
 
+.div-card{
+  margin-top: 10em;
+}
+
 .card-text{
   text-align: center;
 }
 
 .card {
-  padding: 0 5% 5% 5%;
-  width: 60vw;
-}
+  height: 75vh;
+  /*padding: 0 5% 5% 5%;
+  width: 60vw;*/
+}*/
 
 .btn {
   margin-top: 3%;
@@ -54,6 +59,8 @@ a {
 .other {
   color: antiquewhite;
 }
+
+/*Index page*/
 
 .carousel-control{
   opacity: 0;
@@ -66,4 +73,18 @@ justify-content: center;
 
 #login{
  margin-right: 5em;
+}
+
+/*Dashboard*/
+
+.dasboardbox{
+  padding: 2em;
+  background-color: white;
+}
+.card-block{
+  text-align: center;
+}
+
+.dashboard-h2{
+text-align: center;
 }
