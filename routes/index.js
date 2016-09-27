@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var weather = require('../public/javascripts/weather.js')
 var query = require('../database/query');
-
+var maps = require('../public/javascripts/maps.js')
 //*********************
 // ******* GETS **********
 
