@@ -9,16 +9,14 @@
 
       <form action='/search' method='post'>
         <div class="form-group">
-         <label for="exampleSelect2">Choose a category</label>
          <select class="form-control" id="category" name='category' required>
-           <option>Select One</option>
+           <option>Choose an Activity</option>
            {{#each activity}}
-            <option name="{{this.id}}">{{this.activity_name}}</option>
+            <option name="selected">{{this.activity_name}}</option>
            {{/each}}
          </select>
        </div>
         <div class="form-group">
-          <label for="date">When</label>
           <input type="date" class="form-control" name='date' placeholder="mm/dd/yyyy">
         </div>
 

@@ -37,7 +37,8 @@ router.get('/find-activity', function(req, res, next) {
          .then(function(data) {
              res.render('find-activity', {
                  title: 'Scurry',
-                 activity: data
+                 activity: data,
+                 user_id: req.user.id
              });
            })
          .catch(function(err) {
@@ -100,7 +101,7 @@ router.post('/create-activity', function(req, res, next){
 	.then(function(data) {
     res.redirect('/dashboard')
 	})
-	.catch(function(err) {
+	.catch(function(err)
 		return next(err);
 	})
 

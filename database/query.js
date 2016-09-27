@@ -54,5 +54,9 @@ module.exports = {
 
     deleteEvent: function(id) {
         return Events().where('id', id).del();
+    },
+
+    getActivityIDByName: function(name) {
+      return Events().select('id').where('event_name', name)
     }
 }
