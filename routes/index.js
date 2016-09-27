@@ -27,7 +27,10 @@ router.get('/create-profile', function(req, res, next) {
 
 router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', {
-    title: 'Scurry'
+    title: 'Scurry',
+    weatherIcon: weatherIcon,
+    forcast: forecast,
+    date: date
   })
 });
 
