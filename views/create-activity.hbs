@@ -12,10 +12,12 @@
          <label for="exampleSelect2">Choose a category</label>
          <select class="form-control" id="category" name='category' required>
            <option>Select One</option>
+
            {{#each activity}}
            <option>{{this.activity_name}}</option>
            {{/each}}
          </select>
+
        </div>
         <div class="form-group">
           <label for="date">When</label>
