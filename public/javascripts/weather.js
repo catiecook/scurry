@@ -1,5 +1,5 @@
-var express = require('express')
-var request = require('request')
+// var express = require('express')
+// var request = require('request')
 // var query = require('../database/query.js')
 
 // let weatherAPI = weatherAPI;
@@ -31,5 +31,5 @@ var request = require('request')
 // //questions: can I have multiple gets on dashboard, or will I have to redirect with the data to initial page and then render all of the info from the API requests?
 //
 //
-module.exports = router;
+// module.exports = router;
 // git

@@ -51,9 +51,5 @@ module.exports = {
 
     deleteEvent: function(id) {
         return Events().where('id', id).del();
-    },
-
-    getUsersLocationByID: function(id) {
-      return Users('zip', 'city', 'state').where('id', id)
     }
 }
