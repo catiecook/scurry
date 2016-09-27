@@ -34,6 +34,7 @@ app.use(cookieSession({
   name: 'session',
   keys: [process.env.cookie_session_key1, process.env.cookie_session_key2]
 }))
+
 passport.use(new FacebookStrategy({
   clientID: process.env.fb_clientID,
   clientSecret: process.env.fb_clientSecret,
@@ -41,6 +42,7 @@ passport.use(new FacebookStrategy({
   profilefeilds: ['displayName', 'picture.width(200).height(200)', 'first_name', 'last_name']
 },
   function(accessToken, refreshToken, profile, callback) {
+
     knex('users').select('*').where({
       facebook_id: profile.id
     })

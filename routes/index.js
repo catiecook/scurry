@@ -50,7 +50,8 @@ router.get('/create-activity', function(req, res, next) {
       .then(function(data) {
           res.render('create-activity', {
               title: 'Scurry',
-              activity: data
+              activity: data,
+              user_id: req.user.id
           });
         })
       .catch(function(err) {
@@ -86,7 +87,23 @@ router.post('/create-profile', function(req, res, next){
 })
 
 router.post('/create-activity', function(req, res, next){
-  res.redirect('/dashboard')
+  var admin_id = req.user.id;
+  var activity_id = req.body.activity_id;
+	var title = req.body.title;
+  var when = req.body.when;
+	var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+	var description = req.body.description;
+
+  query.addEvent(admin_id, activity_id, title, when, city, state, zip, description)
+	.then(function(data) {
+    res.redirect('/dashboard')
+	})
+	.catch(function(err) {
+		return next(err);
+	})
+
 })
 
 router.post('/create-activity', function(req, res, next){
