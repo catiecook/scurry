@@ -7,9 +7,9 @@
       <h5 class="card-text entry">Find Activity: </h5>
       <br>
 
-      <form action='/search' method='post'>
+      <form action='/scurry-activity' method='post'>
         <div class="form-group">
-         <select class="form-control" id="category" name='category' required>
+         <select class="form-control" id="category" name='activity_id' required>
            <option>Choose an Activity</option>
            {{#each activity}}
             <option name="selected">{{this.activity_name}}</option>
