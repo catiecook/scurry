@@ -48,7 +48,6 @@ router.get('/find-activity', function(req, res, next) {
 });
 
 
-
 router.get('/create-activity', function(req, res, next) {
   query.getAllActivites()
       .then(function(data) {
@@ -61,6 +60,7 @@ router.get('/create-activity', function(req, res, next) {
           return next(err);
       })
 });
+
 
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
