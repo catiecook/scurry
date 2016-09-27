@@ -38,7 +38,7 @@ app.use(cookieSession({
 passport.use(new FacebookStrategy({
   clientID: process.env.fb_clientID,
   clientSecret: process.env.fb_clientSecret,
-  callbackURL: process.env.callbackurl || "http://localhost:3000/auth/facebook/callback",
+  callbackURL: "http://scurry-app.herokuapp.com/auth/facebook/callback",
   profilefeilds: ['displayName', 'picture.width(200).height(200)', 'first_name', 'last_name']
 },
   function(accessToken, refreshToken, profile, callback) {
