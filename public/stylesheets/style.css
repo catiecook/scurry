@@ -103,3 +103,7 @@ a {
 .dashboard-h2{
 text-align: center;
 }
+
+.form-control{
+  margin-bottom: 5%;
+}
