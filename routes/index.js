@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var weather = reqire('../public/javascripts/weather.js')
 var query = require('../database/query');
 
 //*********************
@@ -8,7 +9,6 @@ var query = require('../database/query');
 router.get('/', function(req, res, next) {
   res.render('index' );
 });
-
 
 router.get('/login', function(req, res, next) {
   res.render('login', {
@@ -27,7 +27,11 @@ router.get('/create-profile', function(req, res, next) {
 
 router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', {
-    title: 'Scurry' });
+    title: 'Scurry',
+    allWeather: data,
+    weatherIcon: weatherIcon,
+    date: date,
+    forecast: forecast
 });
 
 router.get('/find-activity', function(req, res, next) {

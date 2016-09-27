@@ -5,7 +5,7 @@ var query = require('../database/query.js')
 let weatherAPI = weatherAPI;
 let $query = query.getUsersLocationByID() /* pull in zipcode or city,state from user info with query */
 
-router.get('/dashboard', function(req, res, next) {
+
   var weatherIcon = []
   var forecast = []
   var date = []
@@ -21,17 +21,12 @@ router.get('/dashboard', function(req, res, next) {
         date.push(weatherData.date)
       }
 
-      res.render('/dashboard' {
-        allWeather: data,
-        weatherIcon: weatherIcon,
-        date: date,
-        forecast: forecast
+      res.render('/dashboard') {
+        
       })
 
     }
   })
-
-})
 
 //questions: can I have multiple gets on dashboard, or will I have to redirect with the data to initial page and then render all of the info from the API requests?
 
