@@ -6,7 +6,9 @@ exports.up = function(knex, Promise) {
         table.integer('activity_id').references('id').inTable('activity').onDelete('CASCADE');
         table.integer('admin_id').references('id').inTable('users').onDelete('CASCADE');
         table.string('description');
-        table.string('location');
+        table.string('city');
+        table.string('state');
+        table.string('zip');
         table.dateTime('when');
     })
 };

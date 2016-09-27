@@ -5,7 +5,6 @@ body {
   flex-direction: column;
   align-items: center;
   align-content: center;
-  /*background: url('https://source.unsplash.com/2100x1200/daily?nature/');*/
   background: url(/images/footer_lodyas.png)center center fixed;
 }
 
@@ -53,6 +52,11 @@ a {
 
 .btn {
   margin-top: 3%;
+  color: #99DDDD;
+}
+.btn-special {
+  height: 35vh;
+  width: 20vw;
 }
 
 .other {
@@ -60,29 +64,46 @@ a {
 }
 
 /*Index page*/
-
 .carousel-control{
   opacity: 0;
 }
 
 .home-button{
   display: flex;
-justify-content: center;
+  justify-content: center;
 }
 
 /*Dashboard*/
-
 .dasboardbox{
   padding: 2em;
   background-color: white;
 }
+
 .card-block{
   text-align: center;
 }
+
 .dashboard-card{
-  height: 75vh;
+  height: 40vh;
+  margin-bottom: 3vh;
+  border-radius: 3%;
+  -webkit-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+}
+
+.button {
+  background-color: #99DDDD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .dashboard-h2{
 text-align: center;
+}
+
+.form-control{
+  margin-bottom: 5%;
 }

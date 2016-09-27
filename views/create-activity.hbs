@@ -4,36 +4,37 @@
 
       <h3 class="card-title text-uppercase">Scurry</h3>
       <br>
-      <h5 class="card-text entry">Create Activity: </h5>
+      <h5 class="card-text entry">Create Activity:</h5>
       <br>
 
       <form action='/create-activity' method='post'>
+        <input type="number" name="admin_id" hidden value={{user_id}}>
         <div class="form-group">
-         <label for="exampleSelect2">Choose a category</label>
-         <select class="form-control" id="category" name='category' required>
-           <option>Select One</option>
 
-           {{#each activity}}
-           <option>{{this.activity_name}}</option>
-           {{/each}}
+
+         <select class="form-control" name='activity_id' required>
+           <option disabled selected hidden>Choose an Activity</option>
+            {{#each activity}}
+              <option value={{this.id}}>{{this.activity_name}}</option>
+            {{/each}}
          </select>
 
        </div>
         <div class="form-group">
-          <label for="date">When</label>
-          <input type="date" class="form-control" name='date' placeholder="mm/dd/yyyy">
+          <input type="text" class="form-control" name="title" placeholder="Event Name">
+          <input type="date" class="form-control" name='when' placeholder="mm/dd/yyyy">
         </div>
 
         <div class="form-group">
-          <label for="date">Where</label>
-          <input type="text" class="form-control" name='location' placeholder="City, State, Zip or name of area">
+          <input type="text" class="form-control" name='city' placeholder="City">
+          <input type="text" class="form-control" name='state' placeholder="State">
+          <input type="text" class="form-control" name="zip" placeholder="Zip">
         </div>
 
         <div class="form-group">
-          <label for="date">Description</label>
           <textarea class="form-control" name='description' placeholder="Tell us about what you're doing."></textarea>
         </div>
-        <button type='submit' class="btn btn-primary">Search</button>
+        <button type='submit' class="btn btn-primary">Create Event</button>
       </form>
 
     </div>

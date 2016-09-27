@@ -27,13 +27,16 @@ module.exports = {
         Activities().where('activity_name', name);
     },
 
-    addEvent: function(title, activity_id, description, location, when) {
+    addEvent: function(admin_id, activity_id, title, when, city, state, zip, description) {
         return Events().insert({
-            title: title,
+            admin_id: admin_id,
             activity_id: activity_id,
-            description: description,
-            location,
-            when
+            title: title,
+            when: when,
+            state: state,
+            city: city,
+            zip: zip,
+            description: description
         })
     },
 
@@ -51,5 +54,5 @@ module.exports = {
 
     deleteEvent: function(id) {
         return Events().where('id', id).del();
-    },
+    }
 }
