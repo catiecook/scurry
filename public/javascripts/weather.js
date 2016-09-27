@@ -1,20 +1,39 @@
-$('dashboard.hbs').ready(function(e) {
-  event.preventDefault();
+var express = require('express')
+var request = require('request')
+var query = require('../database/query.js')
 
-  let $urlBase = 'http://api.wunderground.com/api/';
-  let weatherAPI = weatherAPI;
-  let $query /* pull in zipcode or city,state from user info with query */
+let weatherAPI = weatherAPI;
+let $query = query.getUsersLocationByID() /* pull in zipcode or city,state from user info with query */
 
-  let $url = $urlBase + weatherAPI + '/adfd7dc0d7a5f2f7/forecast/q/80211.json';
+router.get('/dashboard', function(req, res, next) {
+  var weatherIcon = []
+  var forecast = []
+  var date = []
 
-  $get($url).then(function(data){
-    console.log(data);
-    //set up results
-    let $results = $('<div />', {
-      "class": 'card-text'
-    })
-    //append the api call results into given div
-    $('#weather-results').append($results)
+  request('http://api.wunderground.com/api/' + weatherAPI '/forecast/q/' + $query + '.json', function(err, res, data) {
+    if(!err && response.statusCode == 200) {
+      console.log(data.response.forecast)
+      var weatherData = data.response.forecast
 
+      for(var i=0; i<4; i++){
+        weatherIcon.push(weatherData.forecastday[i].icon_url)
+        forecast.push({weatherData.title: weatherData.fcttext_metric})
+        date.push(weatherData.date)
+      }
+
+      res.render('/dashboard' {
+        allWeather: data,
+        weatherIcon: weatherIcon,
+        date: date,
+        forecast: forecast
+      })
+
+    }
   })
+
 })
+
+//questions: can I have multiple gets on dashboard, or will I have to redirect with the data to initial page and then render all of the info from the API requests?
+
+
+module.exports = router;
