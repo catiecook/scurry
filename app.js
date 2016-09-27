@@ -4,9 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var dotenv = require('dotenv').config();
+
+var cookieSession = require('cookie-session')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var KnexConfig = require('./knexfile');
+var knex = require('./database/knex.js')
+
+var passport = require('passport')
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var app = express();
 
@@ -22,8 +30,56 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieSession({
+  name: 'session',
+  keys: [process.env.cookie_session_key1, process.env.cookie_session_key2]
+}))
+
+passport.use(new FacebookStrategy({
+  clientID: process.env.fb_clientID,
+  clientSecret: process.env.fb_clientSecret,
+  callbackURL: "http://localhost:3000/auth/facebook/callback",
+  profilefeilds: ['displayName', 'picture.width(200).height(200)', 'first_name', 'last_name']
+},
+  function(accessToken, refreshToken, profile, callback) {
+    console.log(profile)
+    knex('users').select('*').where({
+      facebook_id: profile.id
+    })
+    .then(function (resp) {
+      if (resp.length === 0) {
+        var user = {
+          facebook_id: profile.id,
+          picture: "https://graph.facebook.com/" + profile.id + "/picture" + "?width=200&height=200" + "&access_token=" + accessToken,
+          name: profile.displayName
+        }
+// set user in session
+        knex('users').insert(user).then(function (resp) {
+          callback(null, user)
+        })
+      } else {
+        callback(null, resp[0])
+      }
+    })
+  }
+ ))
+app.use(passport.initialize())
+app.use(passport.session())
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+
 app.use('/', routes);
 app.use('/users', users);
+
+app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']} ))
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook',{successRedirect: '/dashboard',
+                                    failureRedirect: '/' }));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

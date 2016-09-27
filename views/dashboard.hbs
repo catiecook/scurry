@@ -1,7 +1,7 @@
 <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
 <div class='dasboardbox'>
 
-  <h2 class='dashboard-h2'>Hello Human!</h2>
+  <h2 class='dashboard-h2'>Hello {{data.name}}!</h2>
 
     <div class="row">
 
@@ -24,8 +24,10 @@
                     <div class="card-block" id='weather'>
                         <h5>Weather</h5>
                         <p class="card-text">Check out your upcoming activities</p>
-                        <span class='weather-results'>
+
+                        <span id='weather-results'>
                         </span>
+
                     </div>
                 </div>
             </div>
