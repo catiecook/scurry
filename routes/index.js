@@ -27,21 +27,34 @@ router.get('/create-profile', function(req, res, next) {
 
 router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', {
-    title: 'Scurry',
-    weatherIcon: weatherIcon,
-    forcast: forecast,
-    date: date
+    title: 'Scurry'
   })
 });
 
 router.get('/find-activity', function(req, res, next) {
-  res.render('find-activity', {
-    title: 'Scurry' });
+  query.getAllActivites()
+         .then(function(data) {
+             res.render('find-activity', {
+                 title: 'Scurry',
+                 activity: data
+             });
+           })
+         .catch(function(err) {
+             return next(err);
+         })
 });
 
 router.get('/create-activity', function(req, res, next) {
-  res.render('create-activity', {
-    title: 'Scurry' });
+  query.getAllActivites()
+      .then(function(data) {
+          res.render('create-activity', {
+              title: 'Scurry',
+              activity: data
+          });
+        })
+      .catch(function(err) {
+          return next(err);
+      })
 });
 
 //initial scurry-activity page intil a yes or no choice is made
@@ -86,6 +99,5 @@ router.post('/scurry-activity', function(req, res, next){
 router.post('/scurry-activity/:id', function(req, res, next){
   res.redirect('/activity')
 })
-
 
 module.exports = router;
