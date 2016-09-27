@@ -1,20 +1,17 @@
-$('dashboard.hbs').ready(function(e) {
-  event.preventDefault();
+var express = require('express')
+var request = require('request')
+var query = require('../database/query.js')
 
-  let $urlBase = 'http://api.wunderground.com/api/';
-  let weatherAPI = weatherAPI;
-  let $query /* pull in zipcode or city,state from user info with query */
+let weatherAPI = weatherAPI;
+let $query = query.getUsersLocationByID() /* pull in zipcode or city,state from user info with query */
 
-  let $url = $urlBase + '/adfd7dc0d7a5f2f7/forecast/q/80211.json';
 
-  $get($url).then(function(data){
-    console.log(data.forecast);
-    //set up results
-    let $results = $('<div />', {
-      "class": 'card-text'
-    })
-    //append the api call results into given div
-    $('#weather-results').append($results)
-
-  })
+request('http://api.wunderground.com/api/' + weatherAPI '/forecast/q/' + $query + '.json', function(err, res, body) {
+  if(!err && response.statusCode == 200) {
+    console.log(body)
+    res.render
+  }
 })
+
+
+module.exports = router;
