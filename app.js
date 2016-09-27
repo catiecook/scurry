@@ -34,7 +34,7 @@ app.use(cookieSession({
   name: 'session',
   keys: [process.env.cookie_session_key1, process.env.cookie_session_key2]
 }))
-
+console.log(process.env.callbackurl);
 passport.use(new FacebookStrategy({
   clientID: process.env.fb_clientID,
   clientSecret: process.env.fb_clientSecret,
