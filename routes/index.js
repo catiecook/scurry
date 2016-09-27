@@ -32,6 +32,7 @@ router.get('/dashboard', function(req, res, next) {
     weatherIcon: weatherIcon,
     date: date,
     forecast: forecast
+  })
 });
 
 router.get('/find-activity', function(req, res, next) {
