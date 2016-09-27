@@ -1,6 +1,6 @@
 var express = require('express')
 var request = require('request')
-var query = require('../database/query.js')
+// var query = require('../database/query.js')
 
 // let weatherAPI = weatherAPI;
 // let $query = query.getUsersLocationByID() /* pull in zipcode or city,state from user info with query */
