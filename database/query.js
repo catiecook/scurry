@@ -9,9 +9,9 @@ function Activities() {
     return knex('activity');
 }
 
-// function Users() {
-//     reutrn knex('users');
-// }
+function Users() {
+    return knex('users');
+}
 
 
 
@@ -20,7 +20,7 @@ function Activities() {
 module.exports = {
     getAllEvents: Events,
     getAllActivites: Activities,
-    // getAllUsers: Users,
+    getAllUsers: Users,
 
     getActivitesByName: function(name) {
         return
@@ -37,9 +37,9 @@ module.exports = {
         })
     },
 
-    // getEventByUsers: function(user) {
-    //     return Events().where('users_id', user);
-    // },
+    getEventByUsers: function(user) {
+        return Events().where('users_id', user);
+    },
 
     getEventByLocation: function(location) {
         return Events().where('location', location);

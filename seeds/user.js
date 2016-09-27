@@ -6,21 +6,17 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries
         knex('users').insert({name: 'Rick Peters',
-                            user_name: 'Ricpet',
-                            password: 'password',
-                            zip: 80220 }),
+                            facebook_id: 'Ricpet',
+                            picture: 'password'}),
         knex('users').insert({name: 'Anu Shrestha',
-                             user_name: 'Anudle',
-                             password: 'password1',
-                             zip: 80227 }),
+                             facebook_id: 'Anudle',
+                             picture: 'password1'}),
         knex('users').insert({name: 'Grey Delamar',
-                             user_name: 'GrapeD',
-                             password: 'password2',
-                             zip: 80226 }),
+                             facebook_id: 'GrapeD',
+                             picture: 'password2'}),
         knex('users').insert({name: 'Catie Cook',
-                             user_name: 'Cptcook',
-                             password: 'password3',
-                             zip: 80123 }),
+                             facebook_id: 'Cptcook',
+                             picture: 'password3'}),
       ]);
     });
 };

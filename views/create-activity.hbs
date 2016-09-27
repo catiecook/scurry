@@ -2,7 +2,7 @@
   <div class="card entry">
     <div class="card-block">
 
-      <h3 class="card-title text-uppercase">scurry</h3>
+      <h3 class="card-title text-uppercase">Scurry</h3>
       <br>
       <h5 class="card-text entry">Create Activity: </h5>
       <br>
@@ -12,10 +12,9 @@
          <label for="exampleSelect2">Choose a category</label>
          <select class="form-control" id="category" name='category' required>
            <option>Select One</option>
-           <option>Hike</option>
-           <option>Snow</option>
-           <option>Bike</option>
-           <option>Run</option>
+           {{#each activity}}
+           <option>{{this.activity_name}}</option>
+           {{/each}}
          </select>
        </div>
         <div class="form-group">
