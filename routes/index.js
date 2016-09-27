@@ -7,7 +7,7 @@ var query = require('../database/query');
 // ******* GETS **********
 
 router.get('/', function(req, res, next) {
-  res.render('index' );
+  res.render('index');
 });
 
 router.get('/login', function(req, res, next) {
@@ -27,7 +27,8 @@ router.get('/create-profile', function(req, res, next) {
 
 router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', {
-    title: 'Scurry'
+    title: 'Scurry',
+    user: req.user.name
   })
 });
 

@@ -13,7 +13,7 @@
          <select class="form-control" id="category" name='category' required>
            <option>Select One</option>
            {{#each activity}}
-            <option>{{this.activity_name}}</option>
+            <option name="{{this.id}}">{{this.activity_name}}</option>
            {{/each}}
          </select>
        </div>
