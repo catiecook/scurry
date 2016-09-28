@@ -24,7 +24,7 @@
                   <h5>Upcoming</h5>
                   <p class="card-text">Your Activities: </p>
                   {{#each events}}
-                  <p> {{this.title}} in {{this.city}}</p>
+                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
                   {{/each}}
                   <p class="card-text">You're Attending: </p>
                   <span class='weather-results'>
