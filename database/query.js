@@ -60,7 +60,7 @@ module.exports = {
       return Events().where('activity_name', name);
     },
 
-    getEventIDsByActivity: function(name) {
-      return Events().select('id').where('activity_name', name);
+    getEventIDsByActivityID: function(id) {
+      return Events().select('id').where('activity_id', id);
     }
 }
