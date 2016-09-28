@@ -111,3 +111,7 @@ text-align: center;
 .form-control{
   margin-bottom: 5%;
 }
+
+#title{
+  float: left;
+}
