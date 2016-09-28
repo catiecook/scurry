@@ -130,13 +130,13 @@ router.post('/create-activity', function(req, res, next){
 	})
 })
 
-router.post('/create-activity', function(req, res, next){
-  if (!req.isAuthenticated()) {
-    res.redirect('/');
-    return;
-  }
-  res.redirect('/dashboard')
-})
+// router.post('/create-activity', function(req, res, next){
+//   if (!req.isAuthenticated()) {
+//     res.redirect('/');
+//     return;
+//   }
+//   res.redirect('/dashboard')
+// })
 
 router.post('/scurry-activity', function(req, res, next){
   if (!req.isAuthenticated()) {
