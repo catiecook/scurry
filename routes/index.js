@@ -26,6 +26,10 @@ router.get('/create-profile', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.render('dashboard', {
     title: 'Scurry',
     user: req.user.name
@@ -33,6 +37,10 @@ router.get('/dashboard', function(req, res, next) {
 });
 
 router.get('/find-activity', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   query.getAllActivites()
     .then(function(data) {
       console.log(data)
@@ -47,6 +55,10 @@ router.get('/find-activity', function(req, res, next) {
 });
 
 router.get('/create-activity', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   query.getAllActivites()
       .then(function(data) {
           res.render('create-activity', {
@@ -62,12 +74,20 @@ router.get('/create-activity', function(req, res, next) {
 
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.render('scurry-activity', {
     title: 'Scurry' });
 });
 
 //when no/next button is chosen the first time, it will route to this
 router.get('/scurry-activity/:id', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.render('scurry-activity', {
     title: 'Scurry' });
 });
@@ -88,6 +108,10 @@ router.post('/create-profile', function(req, res, next){
 })
 
 router.post('/create-activity', function(req, res, next){
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   var admin_id = req.user.id;
   var activity_id = req.body.activity_id;
 	var title = req.body.title;
@@ -107,12 +131,21 @@ router.post('/create-activity', function(req, res, next){
 })
 
 router.post('/create-activity', function(req, res, next){
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.redirect('/dashboard')
 })
 
 router.post('/scurry-activity', function(req, res, next){
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.redirect('/scurry-activity/' + req.body.activity_name)
 })
+
 
 
 module.exports = router;
