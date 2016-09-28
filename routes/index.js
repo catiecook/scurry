@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var weather = require('../public/javascripts/weather.js')
+var location = require('../public/javascripts/location.js')
 var query = require('../database/query');
 var knex = require('../database/knex');
 
