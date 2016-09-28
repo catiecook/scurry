@@ -9,18 +9,14 @@ function Activities() {
     return knex('activity');
 }
 
-function Users() {
-    return knex('users');
-}
-
-
-
-
+// function Users() {
+//     reutrn knex('users');
+// }
 
 module.exports = {
     getAllEvents: Events,
     getAllActivites: Activities,
-    getAllUsers: Users,
+    // getAllUsers: Users,
 
     getActivitesByName: function(name) {
         return
@@ -29,20 +25,24 @@ module.exports = {
 
     addEvent: function(admin_id, activity_id, title, when, city, state, zip, description) {
         return Events().insert({
-            admin_id: admin_id,
-            activity_id: activity_id,
-            title: title,
-            when: when,
-            state: state,
-            city: city,
-            zip: zip,
-            description: description
+            'admin_id': admin_id,
+            'activity_id': activity_id,
+            'title': title,
+            'when': when,
+            'state': state,
+            'city': city,
+            'zip': zip,
+            'description': description
         })
     },
 
-    getEventByUsers: function(user) {
-        return Events().where('users_id', user);
-    },
+    // getEventByUsers: function(user) {
+    //     return Events().where('users_id', user);
+    // },
+
+    upcomingEventsByUsers: function(id) {
+       return Events().where('admin_id', id)
+   },
 
     getEventByLocation: function(location) {
         return Events().where('location', location);
@@ -54,5 +54,17 @@ module.exports = {
 
     deleteEvent: function(id) {
         return Events().where('id', id).del();
+    },
+
+    getEventInfoByID: function(id) {
+      return Events().where('id', id);
+    },
+
+    getEventByActivity: function(name) {
+      return Events().where('activity_name', name);
+    },
+
+    getEventIDsByActivityID: function(id) {
+      return Events().select('id').where('activity_id', id);
     }
 }
