@@ -13,10 +13,6 @@ function Activities() {
 //     reutrn knex('users');
 // }
 
-
-
-
-
 module.exports = {
     getAllEvents: Events,
     getAllActivites: Activities,
@@ -27,16 +23,13 @@ module.exports = {
         Activities().where('activity_name', name);
     },
 
-    addEvent: function(admin_id, activity_id, title, when, city, state, zip, description) {
+    addEvent: function(title, activity_id, description, location, when) {
         return Events().insert({
-            admin_id: admin_id,
-            activity_id: activity_id,
             title: title,
-            when: when,
-            state: state,
-            city: city,
-            zip: zip,
-            description: description
+            activity_id: activity_id,
+            description: description,
+            location,
+            when
         })
     },
 
@@ -54,5 +47,17 @@ module.exports = {
 
     deleteEvent: function(id) {
         return Events().where('id', id).del();
+    },
+
+    getEventInfoByID: function(id) {
+      return Events().where('id', id);
+    },
+
+    getEventByActivity: function(name) {
+      return Events().where('activity_name', name);
+    },
+
+    getEventIDsByActivity: function(name) {
+      return Events().select('id').where('activity_name', name);
     }
 }

@@ -34,16 +34,16 @@ router.get('/dashboard', function(req, res, next) {
 
 router.get('/find-activity', function(req, res, next) {
   query.getAllActivites()
-         .then(function(data) {
-             res.render('find-activity', {
-                 title: 'Scurry',
-                 activity: data,
-                 user_id: req.user.id
-             });
-           })
-         .catch(function(err) {
-             return next(err);
-         })
+    .then(function(data) {
+      console.log(data)
+      res.render('find-activity', {
+         title: 'Scurry',
+          activity: data,
+          user_id: req.user.id
+        });
+      }).catch(function(err) {
+         return next(err);
+        })
 });
 
 router.get('/create-activity', function(req, res, next) {
@@ -111,7 +111,8 @@ router.post('/create-activity', function(req, res, next){
 })
 
 router.post('/scurry-activity', function(req, res, next){
-    res.redirect('/scurry-activity/'+ req.body.activity_id)
+
+      res.redirect('/scurry-activity/' + req.body.activity_name)
 })
 
 
