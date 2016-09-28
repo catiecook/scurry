@@ -19,17 +19,21 @@
                   </div>
               </div>
 
-                <div class='dashboard-card'>
-                    <div class="card-block" id='upcoming'>
-                        <h5>Upcoming</h5>
-                        <p class="card-text">Your Activities: </p>
-                        <p class="card-text">You're Attending: </p>
-                        <span class='weather-results'>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+              <div class='dashboard-card'>
+      <div class="card-block" id='upcoming'>
+          <h5>Upcoming</h5>
+          <p class="card-text">Your Activities: </p>
+          {{#each events}}
+          <p> {{this.title}} in {{this.city}}</p>
+          {{/each}}
+          <p class="card-text">You're Attending: </p>
+          <span class='weather-results'>
+          </span>
+      </div>
+  </div>
+</div>
+</div>
+
 
         <div id='middlerow' class="col-xs-6 col-md-4">
             <div class='card-deck'>
