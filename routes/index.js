@@ -64,7 +64,7 @@ router.get('/create-activity', function(req, res, next) {
           res.render('create-activity', {
               title: 'Scurry',
               activity: data,
-              user_id: req.user.id
+              admin_id: req.user.id
           });
         })
       .catch(function(err) {
