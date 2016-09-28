@@ -30,11 +30,16 @@ router.get('/dashboard', function(req, res, next) {
     res.redirect('/');
     return;
   }
+  query.upcomingEventsByUsers(req.user.id)
+  .then(function(data){
   res.render('dashboard', {
     title: 'Scurry',
-    user: req.user.name
+    events: data,
+      user: req.user.name
   })
-});
+})
+})
+
 
 router.get('/find-activity', function(req, res, next) {
   if (!req.isAuthenticated()) {

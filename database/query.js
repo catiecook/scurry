@@ -40,6 +40,10 @@ module.exports = {
     //     return Events().where('users_id', user);
     // },
 
+    upcomingEventsByUsers: function(id) {
+       return Events().where('admin_id', id)
+   },
+
     getEventByLocation: function(location) {
         return Events().where('location', location);
     },
