@@ -112,6 +112,8 @@ router.post('/create-activity', function(req, res, next){
     res.redirect('/');
     return;
   }
+  console.log("title" + req.body.title);
+
   var admin_id = req.user.id;
   var activity_id = req.body.activity_id;
 	var title = req.body.title;
