@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var weather = require('../public/javascripts/weather.js')
 var query = require('../database/query');
-var maps = require('../public/javascripts/maps.js')
+var knex = require('../database/knex');
+
+
 //*********************
 // ******* GETS **********
 
@@ -26,26 +28,45 @@ router.get('/create-profile', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.upcomingEventsByUsers(req.user.id)
+  .then(function(data){
+    // console.log(data[0].id)
   res.render('dashboard', {
     title: 'Scurry',
-    user: req.user.name
+    events: data,
+      user: req.user.name
   })
-});
+})
+})
+
 
 router.get('/find-activity', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   query.getAllActivites()
-         .then(function(data) {
-             res.render('find-activity', {
-                 title: 'Scurry',
-                 activity: data
-             });
-           })
-         .catch(function(err) {
-             return next(err);
-         })
+    .then(function(data) {
+      console.log(data)
+      res.render('find-activity', {
+         title: 'Scurry',
+          activity: data,
+          user_id: req.user.id
+        });
+      }).catch(function(err) {
+         return next(err);
+        })
 });
 
 router.get('/create-activity', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   query.getAllActivites()
       .then(function(data) {
           res.render('create-activity', {
@@ -59,17 +80,43 @@ router.get('/create-activity', function(req, res, next) {
       })
 });
 
+
+
+
+
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.render('scurry-activity', {
     title: 'Scurry' });
 });
 
 //when no/next button is chosen the first time, it will route to this
 router.get('/scurry-activity/:id', function(req, res, next) {
-  res.render('scurry-activity', {
-    title: 'Scurry' });
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  console.log(req.params.id);
+  query.getEventInfoByID(req.params.id)
+    .then(function(data) {
+
+        var eventData = data[0]
+        console.log(eventData);
+        res.render('activity', {
+          title: eventData.title,
+          city: eventData.city,
+          state: eventData.state,
+          zip: eventData.zip,
+          description: eventData.description,
+          when: eventData.when.toDateString()
+        })
+    });
 });
+
 
 //*********************
 // ***** POSTS ********
@@ -87,6 +134,11 @@ router.post('/create-profile', function(req, res, next){
 })
 
 router.post('/create-activity', function(req, res, next){
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+
   var admin_id = req.user.id;
   var activity_id = req.body.activity_id;
 	var title = req.body.title;
@@ -103,19 +155,21 @@ router.post('/create-activity', function(req, res, next){
 	.catch(function(err) {
 		return next(err);
 	})
-
 })
 
-router.post('/create-activity', function(req, res, next){
-  res.redirect('/dashboard')
-})
 
 router.post('/scurry-activity', function(req, res, next){
-  res.redirect('/scurry-activity')
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  res.redirect('/scurry-activity/' + req.body.activity_name)
 })
 
-router.post('/scurry-activity/:id', function(req, res, next){
-  res.redirect('/activity')
-})
+// router.post('/scurry-activity/:id', function(req, res, next) {
+//   console.log("we made it");
+// })
+
+
 
 module.exports = router;
