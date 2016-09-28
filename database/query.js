@@ -25,11 +25,14 @@ module.exports = {
 
     addEvent: function(title, activity_id, description, location, when) {
         return Events().insert({
+          admin_id: admin_id,
+           activity_id: activity_id,
             title: title,
-            activity_id: activity_id,
-            description: description,
-            location,
-            when
+            when: when,
+            state: state,
+            city: city,
+            zip: zip,
+            description: description
         })
     },
 
