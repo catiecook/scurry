@@ -101,8 +101,8 @@ router.post('/create-activity', function(req, res, next){
 	.then(function(data) {
     res.redirect('/dashboard')
 	})
-	.catch(function(err)
-		return next(err);
+	.catch(function(err){
+		return next(err)
 	})
 
 })
