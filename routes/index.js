@@ -1,4 +1,5 @@
 var express = require('express');
+var axios = require('axios')
 var router = express.Router();
 var weather = require('../public/javascripts/weather.js')
 var query = require('../database/query');
@@ -31,15 +32,14 @@ router.get('/dashboard', function(req, res, next) {
     return;
   }
   query.upcomingEventsByUsers(req.user.id)
-  .then(function(data){
-  res.render('dashboard', {
-    title: 'Scurry',
-    events: data,
-      user: req.user.name
+    .then(function(data){
+      res.render('dashboard', {
+        title: 'Scurry',
+        events: data,
+        user: req.user.name
+      })
   })
 })
-})
-
 
 router.get('/find-activity', function(req, res, next) {
   if (!req.isAuthenticated()) {

@@ -41,13 +41,18 @@
                     <div class="card-block" id='weather'>
                         <h5>Weather</h5>
                         <p class="card-text">Enter a zip to check the weather</p>
-                        <div class='form-group'>
-                          <label for="zipcode">Zip Code</label>
-                          <input type='zipcode' class='form-control' name='zipcode' placeholder="zip code">
+                        {{#if zipcodeExists}}
+                        <div class='weather'>
+                          <label for="zipcode">Weather for {{zipcode}}</labe>
                         </div>
-                        <span id='weather-results'>
-                        </span>
-                    </div>
+                        {{else}}
+                        <div class='weather'>
+                          <div class='form-group hidden'>
+                            <label for="zipcode">Zip Code</label>
+                            <input type='zipcode' class='form-control' name='zipcode' placeholder="zip code">
+                          </div>
+                        </div>
+                        {{/if}}
                 </div>
 
             </div>
