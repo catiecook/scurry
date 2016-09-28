@@ -45,7 +45,7 @@ router.get('/find-activity', function(req, res, next) {
     .then(function(data) {
       console.log(data)
       res.render('find-activity', {
-         title: 'Scurry',
+          title: 'Scurry',
           activity: data,
           user_id: req.user.id
         });

@@ -23,6 +23,12 @@ let state
     }
   })
 
+  //need to access the data in this similarly to knex
+  //if using superagent will have to promisify the return
+
+  //axios
+  //return axios.get(URL) and mod export it just like knex queries and then in my index call it with weather.queryName().then(function(stuff))
+
 
 
 module.exports = request;
