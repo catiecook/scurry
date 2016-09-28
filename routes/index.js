@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var weather = require('../public/javascripts/weather.js')
 var query = require('../database/query');
+var knex = require('../database/knex');
+
 
 //*********************
 // ******* GETS **********
@@ -32,6 +34,7 @@ router.get('/dashboard', function(req, res, next) {
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
+    // console.log(data[0].id)
   res.render('dashboard', {
     title: 'Scurry',
     events: data,
@@ -69,13 +72,17 @@ router.get('/create-activity', function(req, res, next) {
           res.render('create-activity', {
               title: 'Scurry',
               activity: data,
-              admin_id: req.user.id
+              user_id: req.user.id
           });
         })
       .catch(function(err) {
           return next(err);
       })
 });
+
+
+
+
 
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
@@ -93,9 +100,23 @@ router.get('/scurry-activity/:id', function(req, res, next) {
     res.redirect('/');
     return;
   }
-  res.render('scurry-activity', {
-    title: 'Scurry' });
+  console.log(req.params.id);
+  query.getEventInfoByID(req.params.id)
+    .then(function(data) {
+
+        var eventData = data[0]
+        console.log(eventData);
+        res.render('activity', {
+          title: eventData.title,
+          city: eventData.city,
+          state: eventData.state,
+          zip: eventData.zip,
+          description: eventData.description,
+          when: eventData.when.toDateString()
+        })
+    });
 });
+
 
 //*********************
 // ***** POSTS ********
@@ -136,13 +157,6 @@ router.post('/create-activity', function(req, res, next){
 	})
 })
 
-// router.post('/create-activity', function(req, res, next){
-//   if (!req.isAuthenticated()) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.redirect('/dashboard')
-// })
 
 router.post('/scurry-activity', function(req, res, next){
   if (!req.isAuthenticated()) {
@@ -151,6 +165,10 @@ router.post('/scurry-activity', function(req, res, next){
   }
   res.redirect('/scurry-activity/' + req.body.activity_name)
 })
+
+// router.post('/scurry-activity/:id', function(req, res, next) {
+//   console.log("we made it");
+// })
 
 
 
