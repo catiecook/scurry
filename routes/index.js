@@ -111,8 +111,7 @@ router.post('/create-activity', function(req, res, next){
 })
 
 router.post('/scurry-activity', function(req, res, next){
-
-      res.redirect('/scurry-activity/' + req.body.activity_name)
+  res.redirect('/scurry-activity/' + req.body.activity_name)
 })
 
 
