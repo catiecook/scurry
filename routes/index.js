@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var location = require('../public/javascripts/location.js')
+var axios = require('axios');
 var query = require('../database/query');
 var knex = require('../database/knex');
-
+var api = process.env.weatherAPI;
+var cities = require('cities');
 
 //*********************
-// ******* GETS **********
+// ******* GETS *******
 
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -15,6 +16,7 @@ router.get('/', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   res.render('login', {
     title: 'Scurry' });
+    console.log("LONG" + req.body.lon);
 });
 
 router.get('/register', function(req, res, next) {
@@ -28,21 +30,23 @@ router.get('/create-profile', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
+
   if (!req.isAuthenticated()) {
     res.redirect('/');
     return;
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
-    // console.log(data[0].id)
-  res.render('dashboard', {
-    title: 'Scurry',
-    events: data,
+
+    // axios('http://api.wunderground.com/api/' + api + )
+    res.render('dashboard', {
+      title: 'Scurry',
+      events: data,
       user: req.user.name
+    })
+
   })
 })
-})
-
 
 router.get('/find-activity', function(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -79,10 +83,6 @@ router.get('/create-activity', function(req, res, next) {
           return next(err);
       })
 });
-
-
-
-
 
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
@@ -169,7 +169,5 @@ router.post('/scurry-activity', function(req, res, next){
 // router.post('/scurry-activity/:id', function(req, res, next) {
 //   console.log("we made it");
 // })
-
-
 
 module.exports = router;
