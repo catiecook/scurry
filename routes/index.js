@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var weather = require('../public/javascripts/weather.js')
 var query = require('../database/query');
+var knex = require('../database/knex');
+
 
 //*********************
 // ******* GETS **********
@@ -32,6 +34,7 @@ router.get('/dashboard', function(req, res, next) {
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
+    // console.log(data[0].id)
   res.render('dashboard', {
     title: 'Scurry',
     events: data,
@@ -79,6 +82,10 @@ router.get('/create-activity', function(req, res, next) {
       })
 });
 
+
+
+
+
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -95,6 +102,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
     res.redirect('/');
     return;
   }
+
   query.getEventInfoByID(req.params.id)
     .then(function(data) {
 
@@ -110,6 +118,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
         })
     });
 });
+
 //*********************
 // ***** POSTS ********
 
@@ -149,13 +158,6 @@ router.post('/create-activity', function(req, res, next){
 	})
 })
 
-// router.post('/create-activity', function(req, res, next){
-//   if (!req.isAuthenticated()) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.redirect('/dashboard')
-// })
 
 router.post('/scurry-activity', function(req, res, next){
   if (!req.isAuthenticated()) {
@@ -164,6 +166,10 @@ router.post('/scurry-activity', function(req, res, next){
   }
   res.redirect('/scurry-activity/' + req.body.activity_name)
 })
+
+// router.post('/scurry-activity/:id', function(req, res, next) {
+//   console.log("we made it");
+// })
 
 
 

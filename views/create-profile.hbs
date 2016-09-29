@@ -1,34 +1,36 @@
-<div class='container-fliud'>
-  <div class="card entry">
-    <div class="card-block">
-      <h3 class="card-title text-uppercase">scurry</h3>
-      <br>
-      <h5 class="card-text entry">Create Profile:</h5>
-      <br>
-      <p> <em>Tell us a bit about you so we can find some fun things for you to do.</em></p>
+<div class="wraper"
+  <div class='container-fliud'>
+    <div class="card entry">
+      <div class="card-block">
+        <h3 class="card-title text-uppercase">scurry</h3>
+        <br>
+        <h5 class="card-text entry">Create Profile:</h5>
+        <br>
+        <p> <em>Tell us a bit about you so we can find some fun things for you to do.</em></p>
 
-      <form action='/create-profile' method='post'>
-        <div class='form-group'>
-          <label for="fullname">Full Name</label>
-          <input type='full_name' class='form-control' name='full_name' placeholder="full name">
-        </div>
+        <form action='/create-profile' method='post'>
+          <div class='form-group'>
+            <label for="fullname">Full Name</label>
+            <input type='full_name' class='form-control' name='full_name' placeholder="full name">
+          </div>
 
-        <div class='form-group'>
-          <label for="zipcode">Zip Code</label>
-          <input type='zipcode' class='form-control' name='zipcode' placeholder="zip code">
-        </div>
-        <div class='form-group'>
-          <label for="about">Tell us about yourself</label>
-          <textarea type='text' class='form-control' name='about' placeholder="describe yourself"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="image">Upload a Photo</label>
-          <input type="file" class="form-control-file" name="image">
-          <small id="fileHelp" class="form-text text-muted">This is the photo others will see when you are going to go do an activity together</small>
-        </div>
+          <div class='form-group'>
+            <label for="zipcode">Zip Code</label>
+            <input type='zipcode' class='form-control' name='zipcode' placeholder="zip code">
+          </div>
+          <div class='form-group'>
+            <label for="about">Tell us about yourself</label>
+            <textarea type='text' class='form-control' name='about' placeholder="describe yourself"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="image">Upload a Photo</label>
+            <input type="file" class="form-control-file" name="image">
+            <small id="fileHelp" class="form-text text-muted">This is the photo others will see when you are going to go do an activity together</small>
+          </div>
 
-      <button type='submit' class="btn btn-primary">Create Profile</button>
-    </form>
+        <button type='submit' class="btn btn-primary">Create Profile</button>
+      </form>
+      </div>
     </div>
   </div>
 </div>
