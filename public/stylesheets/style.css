@@ -3,7 +3,7 @@ html, body{
   height: 100%;
   margin: 0;
   padding: 0;
-  /*background: url(/images/footer_lodyas.png)center center fixed;*/
+  background: url(/images/footer_lodyas.png)center center fixed;
 }
 
 .wrapper {
@@ -93,7 +93,7 @@ a {
 }
 
 .dashboard-card {
-  height: 40vh;
+  height: 33vh;
   margin-bottom: 6%;
   border-radius: 3%;
   -webkit-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
@@ -102,7 +102,7 @@ a {
 }
 
 .middle {
-  height: 81.5vh;
+  height: 70vh;
 }
 
 .button {

@@ -1,71 +1,69 @@
 <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
 
 <div class="wrapper">
-  <div class='dasboardbox'>
+  <div class='dashboardbox'>
+    <h2 class='dashboard-h2'><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Hello {{user}}!</h2>
+    <br>
+      <div class="row">
+
+          <div id='rightrow' class="col-xs-6 col-md-4">
+              <div class='card-deck'>
+
+                <div class='dashboard-card'>
+                    <div class="card-block" id='porfile'>
+                        <!-- <h5>Profile Info</h5> -->
+                        <img class='profilepic' src={{photo}}>
+                        <!-- <span class='weather-results'>
+                        </span> -->
+                    </div>
+                </div>
+
+                <div class='dashboard-card'>
+                  <div class="card-block" id='upcoming'>
+                    <h5>Upcoming</h5>
+                    <p class="card-text">Your Activities: </p>
+                    {{#each events}}
+                    <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
+                    {{/each}}
+                    <!-- <p class="card-text">You're Attending: </p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-  <h2 class='dashboard-h2'><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Hello {{user}}!</h2>
-  <br>
-    <div class="row">
-
-        <div id='rightrow' class="col-xs-6 col-md-4">
-            <div class='card-deck'>
-
-              <div class='dashboard-card'>
-                  <div class="card-block" id='porfile'>
-                      <!-- <h5>Profile Info</h5> -->
-                      <img class='profilepic' src={{photo}}>
-                      <!-- <span class='weather-results'>
-                      </span> -->
+          <div id='middlerow' class="col-xs-6 col-md-4">
+              <div class='card-deck'>
+                  <div class='dashboard-card middle'>
+                      <div class="card-block" id='weather'>
+                        <h5>Local Weather</h5>
+                        <hr>
+                        <br>
+                          <span id='weatherResults'>
+                          </span>
+                      </div>
                   </div>
               </div>
-
-              <div class='dashboard-card'>
-                <div class="card-block" id='upcoming'>
-                  <h5>Upcoming</h5>
-                  <p class="card-text">Your Activities: </p>
-                  {{#each events}}
-                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
-                  {{/each}}
-                  <!-- <p class="card-text">You're Attending: </p> -->
-                </div>
-              </div>
-            </div>
           </div>
 
+          <div id='rightrow' class="col-xs-6 col-md-4">
+              <div class='card-deck'>
+                  <a href='/create-activity'><div class='dashboard-card button'>
+                      <div class="card-block" id='create'>
+                          <h5>Create Activity</h5>
+                          <span class='photo-results'></span>
+                      </div>
+                  </div></a>
+                  <a href='/find-activity'><div class='dashboard-card button'>
+                      <div class="card-block" id='find'>
+                          <h5>Find Activity</h5>
+                          <span class='photo-results'>
+                          </span>
+                      </div>
+                  </div></a>
+              </div>
+          </div>
 
-        <div id='middlerow' class="col-xs-6 col-md-4">
-            <div class='card-deck'>
-                <div class='dashboard-card middle'>
-                    <div class="card-block" id='weather'>
-                      <h5>Local Weather</h5>
-                      <hr>
-                      <br>
-                        <span id='weatherResults'>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id='rightrow' class="col-xs-6 col-md-4">
-            <div class='card-deck'>
-                <a href='/create-activity'><div class='dashboard-card button'>
-                    <div class="card-block" id='create'>
-                        <h5>Create Activity</h5>
-                        <span class='photo-results'></span>
-                    </div>
-                </div></a>
-                <a href='/find-activity'><div class='dashboard-card button'>
-                    <div class="card-block" id='find'>
-                        <h5>Find Activity</h5>
-                        <span class='photo-results'>
-                        </span>
-                    </div>
-                </div></a>
-            </div>
-        </div>
-
-    </div>
-</div>
+      </div>
+  </div>
 </div>
