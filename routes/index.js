@@ -31,20 +31,20 @@ router.get('/create-profile', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.redirect('/');
-        return;
-    }
-    query.upcomingEventsByUsers(req.user.id)
-        .then(function(data) {
-
-            res.render('dashboard', {
-                title: 'Scurry',
-                events: data,
-                user: req.user.name,
-                photo: req.user.picture
-            })
-        })
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.upcomingEventsByUsers(req.user.id)
+  .then(function(data){
+  console.log(data);
+    res.render('dashboard', {
+      title: 'Scurry',
+      events: data,
+      user: req.user.name,
+      photo: req.user.picture
+    })
+  })
 })
 
 
@@ -86,8 +86,6 @@ router.get('/create-activity', function(req, res, next) {
 
 
 
-
-
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
     if (!req.isAuthenticated()) {
@@ -114,7 +112,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     title: eventData.title,
                     city: eventData.city,
                     state: eventData.state,
-                    zip: eventData.zip,
+                    address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
                     admin: true //made this false if not admin id below
@@ -125,13 +123,14 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     title: eventData.title,
                     city: eventData.city,
                     state: eventData.state,
-                    zip: eventData.zip,
+                    address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
                     admin: false
                 })
             };
-        });
+      });
+})
 router.get('/delete-activity/:id', function(req, res, next) {
         if (!req.isAuthenticated()) {
             res.redirect('/');
@@ -150,7 +149,6 @@ router.get('/delete-activity/:id', function(req, res, next) {
                 }
             });
     });
-})
 router.get('/:id/delete', function(req, res, next) {
     if (!req.isAuthenticated()) {
         res.redirect('/');
@@ -161,6 +159,7 @@ router.get('/:id/delete', function(req, res, next) {
             res.redirect('/dashboard')
         })
 });
+
 router.get('/edit-activity/:id', function(req, res, next) {
         if (!req.isAuthenticated()) {
             res.redirect('/');
@@ -177,14 +176,13 @@ router.get('/edit-activity/:id', function(req, res, next) {
                         description: eventData.description,
                         city: eventData.city,
                         state: eventData.state,
-                        zip: eventData.zip,
+                        address: eventData.address,
                     })
                 } else {
                     res.redirect('/scurry-activity')
                 }
             });
     });
-
 
 //*********************
 // ***** POSTS ********
@@ -213,9 +211,9 @@ router.post('/create-activity', function(req, res, next) {
     var when = req.body.when;
     var city = req.body.city;
     var state = req.body.state;
-    var zip = req.body.zip;
+    var address = req.body.address;
     var description = req.body.description;
-    query.addEvent(admin_id, activity_id, title, when, city, state, zip, description)
+    query.addEvent(admin_id, activity_id, title, when, city, state, address, description)
         .then(function(data) {
             res.redirect('/dashboard')
         })
@@ -239,14 +237,32 @@ router.post('/edit-activity/:id', function(req, res, next) {
   var id = req.params.id;
   var title = req.body.title;
   var when = req.body.when;
+  var address = req.body.address;
   var city = req.body.city;
   var state = req.body.state;
-  var zip = req.body.zip;
   var description = req.body.description;
-  query.updateEvent(id, title, when, city, state, zip, description )
+  query.updateEvent(id, title, when, city, state, address, description )
     .then(function(data) {
         res.redirect('/dashboard');
-    });
-});
+    })
+    // .catch(function(err) {
+  	// 	return next(err);
+  	// })
+  })
+
+
+
+router.post('/scurry-activity', function(req, res, next){
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  res.redirect('/scurry-activity/' + req.body.activity_name)
+})
+
+// router.post('/scurry-activity/:id', function(req, res, next) {
+//   console.log("we made it");
+// })
+
 
 module.exports = router;
