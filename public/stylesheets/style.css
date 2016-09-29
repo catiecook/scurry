@@ -5,7 +5,7 @@ html, body{
   padding: 0;
 }
 
-.wraper {
+.wrapper {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
@@ -186,3 +186,4 @@ text-align: center;
 }
 #target {
   width: 345px;
+}

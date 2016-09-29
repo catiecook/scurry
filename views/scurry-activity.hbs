@@ -1,4 +1,4 @@
-<div class="wraper">
+<div class="wrapper">
   <div class='container-fliud'>
     <div class="card entry">
       <div class="card-block">
@@ -7,9 +7,15 @@
         <br>
         <h5 class="card-text entry">{{title}}</h5>
         <br>
-          <h1>{{data.title}}</h1>
-          <span class='yesNo'><button type='no' class="btn btn-primary" id='no'>No</button>
-          <button type='yes' class="btn btn-primary" id='yes'>yes</button></span>
+        <div class="slick">
+          {{#each events}}
+
+            <div>{{this.title}}<span><a href="/scurry-activity/{{this.id}}" class="btn btn-primary">yes</a></span></div>
+
+          {{/each}}
+          <!-- <span class='yesNo'><button type='no' class="btn btn-primary" id='no'>No</button>
+          <a href="/scurry-activity/{{this.id}}" class="btn btn-primary">yes</a></span> -->
+        </div>
       </div>
     </div>
     <span class='other'><p>Want to create an activity? <a href="/create-activity">Create Activity...</a>

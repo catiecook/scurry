@@ -16,8 +16,6 @@ function Users() {
 module.exports = {
     getAllEvents: Events,
     getAllActivites: Activities,
-    // getAllUsers: Users,
-
     getActivitesByName: function(name) {
         return
         Activities().where('activity_name', name);
@@ -65,6 +63,6 @@ module.exports = {
     },
 
     getEventIDsByActivityID: function(id) {
-      return Events().where('id', id)
+      return Events().where('activity_id', id)
     }
 }

@@ -34,13 +34,15 @@ router.get('/dashboard', function(req, res, next) {
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
-console.log(data);
     res.render('dashboard', {
       title: 'Scurry',
       events: data,
       user: req.user.name,
       photo: req.user.picture
     })
+  })
+  .catch(function(err){
+    return next(err)
   })
 })
 
@@ -52,7 +54,7 @@ router.get('/find-activity', function(req, res, next) {
   }
   query.getAllActivites()
     .then(function(data) {
-      console.log(data)
+      // console.log(data)
       res.render('find-activity', {
          title: 'Scurry',
           activity: data,
@@ -86,16 +88,22 @@ router.get('/create-activity', function(req, res, next) {
 
 
 //initial scurry-activity page intil a yes or no choice is made
-router.get('/scurry-activity', function(req, res, next) {
+
+router.get('/scurry-activity/find/', function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/');
     return;
   }
-  res.render('scurry-activity', {
-    title: 'Scurry' });
+  query.getEventIDsByActivityID(req.query.id)
+  .then(function(data){
+    res.render('scurry-activity', {
+      events: data,
+      title: "Scurry"
+    });
+  })
 });
 
-//when no/next button is chosen the first time, it will route to this
+//when no/yes button is chosen the first time, it will route to this
 router.get('/scurry-activity/:id', function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/');
@@ -103,7 +111,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
   }
   query.getEventInfoByID(req.params.id)
     .then(function(data) {
-        var eventData = data[0]
+        var eventData = data[0];
         res.render('activity', {
           id: eventData.id,
           title: eventData.title,
@@ -190,11 +198,5 @@ router.post('/scurry-activity', function(req, res, next){
   }
   res.redirect('/scurry-activity/' + req.body.activity_name)
 })
-
-// router.post('/scurry-activity/:id', function(req, res, next) {
-//   console.log("we made it");
-// })
-
-
 
 module.exports = router;
