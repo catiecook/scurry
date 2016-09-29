@@ -13,15 +13,16 @@
 
       </div>
 
-        <a href="/delete-activity/{{id}}" class="btn btn-sm btn-danger">Delete {{title}}</a>
+      {{#if admin}}
+        <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
+        <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-primary">Edit {{title}}</a>
+      {{else}}
+        <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden">Delete {{title}}</a>
+      {{/if}}
+
+
     </div>
 
-    {{#if admin}}
-      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
-      <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-primary">Edit {{title}}</a>
-    {{else}}
-      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden">Delete {{title}}</a>
-    {{/if}}
 
   </div>
 
