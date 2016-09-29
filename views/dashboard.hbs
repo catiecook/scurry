@@ -1,9 +1,8 @@
 <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-<div class='dasboardbox'>
+<div class='dashboardbox'>
 
   <h2 class='dashboard-h2'>Hello {{user}}!</h2>
   <br>
-
     <div class="row">
 
         <div id='rightrow' class="col-xs-6 col-md-4">
@@ -26,10 +25,7 @@
                   {{#each events}}
                   <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
                   {{/each}}
-                  <p class="card-text">You're Attending: </p>
-                  <span class='weather-results'>
-                  </span>
-
+                  <!-- <p class="card-text">You're Attending: </p> -->
                 </div>
               </div>
             </div>
@@ -40,12 +36,7 @@
             <div class='card-deck'>
                 <div class='dashboard-card middle'>
                     <div class="card-block" id='weather'>
-                        <h5>Weather</h5>
-                        <br>
-                        <span id="lat" onLoad="" name='lat'></span>
-                        <br>
-                        <span id="lon" onLoad="" name='lon'></span>
-                        <span id='weather-results'>
+                        <span id='weatherResults'>
                         </span>
                     </div>
                 </div>

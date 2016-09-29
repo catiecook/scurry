@@ -12,57 +12,12 @@
 
   </head>
   <body>
+
     {{{body}}}
-
-    <!-- <script>
-    //   navigator.geolocation.getCurrentPosition(function(position) {
-    //     console.log(position.coords.latitude, position.coords.longitude)
-    //     // function success(position) {
-    //     //   var lat = position.coords.latitude
-    //     //   var lon = position.coords.longitude
-    //     //   console.log(lat, lon);
-    //     // }
-    //
-    //
-    //
-    // });
-
-
-
-
-    var lat = document.getElementById("lat");
-    var lon = document.getElementById("lon");
-    var gps = []
-
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      }
-      else {
-        lat.innerHTML="Geolocation is not supported by this browser.";
-      }
-    }
-    function showPosition(position) {
-      let latitude = position.coords.latitude
-      let longitude = position.coords.longitude
-      lat.innerHTML= "Latitude: " + position.coords.latitude;
-      lon.innerHTML= "<br>Longitude: " + position.coords.longitude;
-
-      gps.push(latitude, longitude)
-      // console.log(location);
-      return (gps)
-    }
-
-    console.log(gps);
-    console.log(gps[0]);
-    getLocation();
-
-    </script> -->
-    <script src='../public/javascripts/location.js'></script>
-
-
+    <script> var api = {{key}} </script>
     <!-- bootstrap alpha 4 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src='/javascripts/location.js'></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>

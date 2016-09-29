@@ -37,12 +37,11 @@ router.get('/dashboard', function(req, res, next) {
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
-
-    // axios('http://api.wunderground.com/api/' + api + )
     res.render('dashboard', {
       title: 'Scurry',
       events: data,
-      user: req.user.name
+      user: req.user.name,
+      key: process.env.weatherAPI
     })
 
   })

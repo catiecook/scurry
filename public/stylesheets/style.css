@@ -74,7 +74,7 @@ a {
 }
 
 /*Dashboard*/
-.dasboardbox{
+.dashboardbox{
   padding: 2% 1% 0 1%;
   background-color: white;
 }
@@ -114,4 +114,17 @@ text-align: center;
 
 #title{
   float: left;
+}
+
+.report {
+  margin-bottom: 10%;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: .8em;
+}
+
+.weatherTitle {
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 1.2em;
 }
