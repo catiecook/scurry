@@ -14,8 +14,51 @@
   <body>
     {{{body}}}
 
+    <script>
+    //   navigator.geolocation.getCurrentPosition(function(position) {
+    //     console.log(position.coords.latitude, position.coords.longitude)
+    //     // function success(position) {
+    //     //   var lat = position.coords.latitude
+    //     //   var lon = position.coords.longitude
+    //     //   console.log(lat, lon);
+    //     // }
+    //
+    //
+    //
+    // });
 
-    <script src='location.js'></script>
+
+
+
+    var lat = document.getElementById("lat");
+    var lon = document.getElementById("lon");
+    var gps = []
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+      else {
+        lat.innerHTML="Geolocation is not supported by this browser.";
+      }
+    }
+    function showPosition(position) {
+      let latitude = position.coords.latitude
+      let longitude = position.coords.longitude
+      lat.innerHTML= "Latitude: " + position.coords.latitude;
+      lon.innerHTML= "<br>Longitude: " + position.coords.longitude;
+
+      gps.push(latitude, longitude)
+      // console.log(location);
+      return (gps)
+    }
+
+    console.log(gps);
+    console.log(gps[0]);
+    getLocation();
+
+    </script>
+    <!-- <script src='../public/javascripts/location.js'></script> -->
 
 
     <!-- bootstrap alpha 4 -->
