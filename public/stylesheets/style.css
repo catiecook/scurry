@@ -115,3 +115,18 @@ text-align: center;
 #title{
   float: left;
 }
+
+#profile{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilepic{
+  height: 30vh;
+  width: 20vw;
+}
+
+#upcoming{
+  height:33vh;
+  display: block;
+}
