@@ -41,9 +41,9 @@ router.get('/dashboard', function(req, res, next) {
       title: 'Scurry',
       events: data,
       user: req.user.name,
-      key: process.env.weatherAPI
+      key: process.env.weatherAPI,
+      photo: req.user.picture
     })
-
   })
 })
 
@@ -99,13 +99,11 @@ router.get('/scurry-activity/:id', function(req, res, next) {
     res.redirect('/');
     return;
   }
-  console.log(req.params.id);
   query.getEventInfoByID(req.params.id)
     .then(function(data) {
-
         var eventData = data[0]
-        console.log(eventData);
         res.render('activity', {
+          id: eventData.id,
           title: eventData.title,
           city: eventData.city,
           state: eventData.state,
@@ -115,6 +113,34 @@ router.get('/scurry-activity/:id', function(req, res, next) {
         })
     });
 });
+
+router.get('/delete-activity/:id', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.getEventInfoByID(req.params.id)
+    .then(function(data) {
+        var eventData = data[0]
+        res.render('delete-activity', {
+          title: eventData.title,
+          id: eventData.id
+        })
+    });
+});
+
+
+router.get('/:id/delete',function(req,res, next){
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+	query.deleteEvent(req.params.id)
+  .then(function(){
+    res.redirect('/dashboard')
+  })
+});
+
 
 
 //*********************

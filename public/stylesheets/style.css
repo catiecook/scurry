@@ -116,6 +116,7 @@ text-align: center;
   float: left;
 }
 
+
 .report {
   margin-bottom: 10%;
   font-weight: normal;
@@ -127,4 +128,21 @@ text-align: center;
   font-weight: bold;
   font-variant: small-caps;
   font-size: 1.2em;
+}
+
+#profile {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilepic{
+  max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+#upcoming {
+  height: 33vh;
+  display: block;
+
 }
