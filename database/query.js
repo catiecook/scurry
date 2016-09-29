@@ -9,9 +9,9 @@ function Activities() {
     return knex('activity');
 }
 
-// function Users() {
-//     reutrn knex('users');
-// }
+function Users() {
+    return knex('users');
+}
 
 module.exports = {
     getAllEvents: Events,

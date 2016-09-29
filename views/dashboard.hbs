@@ -11,12 +11,12 @@
               <div class='card-deck'>
 
                 <div class='dashboard-card'>
-                    <div class="card-block" id='upcoming'>
-                        <h5>Profile Info</h5>
-                        <p>Profile Picture here?</p>
-                        <p class="card-text">City, State, Zip</p>
-                        <span class='weather-results'>
-                        </span>
+                  <div class='dashboard-card'>
+                      <div class="card-block" id='porfile'>
+                          <!-- <h5>Profile Info</h5> -->
+                          <img class='profilepic' src={{photo}}>
+                          <!-- <span class='weather-results'>
+                          </span> -->
                     </div>
                 </div>
 
@@ -35,24 +35,22 @@
               </div>
             </div>
 
-
-          <div id='middlerow' class="col-xs-6 col-md-4">
-              <div class='card-deck'>
-                  <div class='dashboard-card middle'>
-                      <div class="card-block" id='weather'>
-                          <h5>Weather</h5>
-                          <p class="card-text">Enter a zip to check the weather</p>
-                          <div class='form-group'>
-                            <label for="zipcode">Zip Code</label>
-                            <input type='zipcode' class='form-control' name='zipcode' placeholder="zip code">
-                          </div>
-                          <span id='weather-results'>
-                          </span>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
+        <div id='middlerow' class="col-xs-6 col-md-4">
+            <div class='card-deck'>
+                <div class='dashboard-card middle'>
+                    <div class="card-block" id='weather'>
+                        <h5>Weather</h5>
+                        <p class="card-text">Enter a zip to check the weather</p>
+                        <div class='form-group'>
+                          <label for="zipcode">Zip Code</label>
+                          <input type='zipcode' class='form-control' name='zipcode' placeholder="zip code">
+                        </div>
+                        <span id='weather-results'>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
           <div id='rightrow' class="col-xs-6 col-md-4">
               <div class='card-deck'>
