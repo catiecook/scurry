@@ -132,7 +132,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                 })
             };
         });
-    router.get('/delete-activity/:id', function(req, res, next) {
+router.get('/delete-activity/:id', function(req, res, next) {
         if (!req.isAuthenticated()) {
             res.redirect('/');
             return;
@@ -151,7 +151,6 @@ router.get('/scurry-activity/:id', function(req, res, next) {
             });
     });
 })
-
 router.get('/:id/delete', function(req, res, next) {
     if (!req.isAuthenticated()) {
         res.redirect('/');
@@ -162,6 +161,30 @@ router.get('/:id/delete', function(req, res, next) {
             res.redirect('/dashboard')
         })
 });
+router.get('/edit-activity/:id', function(req, res, next) {
+        if (!req.isAuthenticated()) {
+            res.redirect('/');
+            return;
+        }
+        query.getEventInfoByID(req.params.id)
+            .then(function(data) {
+                var eventData = data[0]
+                if (req.user.id == eventData.admin_id) {
+                    res.render('edit-activity', {
+                        title: eventData.title,
+                        id: req.params.id,
+                        when: eventData.when,
+                        description: eventData.description,
+                        city: eventData.city,
+                        state: eventData.state,
+                        zip: eventData.zip,
+                    })
+                } else {
+                    res.redirect('/scurry-activity')
+                }
+            });
+    });
+
 
 //*********************
 // ***** POSTS ********
@@ -192,7 +215,6 @@ router.post('/create-activity', function(req, res, next) {
     var state = req.body.state;
     var zip = req.body.zip;
     var description = req.body.description;
-
     query.addEvent(admin_id, activity_id, title, when, city, state, zip, description)
         .then(function(data) {
             res.redirect('/dashboard')
@@ -201,8 +223,6 @@ router.post('/create-activity', function(req, res, next) {
             return next(err);
         })
 })
-
-
 router.post('/scurry-activity', function(req, res, next) {
     if (!req.isAuthenticated()) {
         res.redirect('/');
@@ -211,6 +231,22 @@ router.post('/scurry-activity', function(req, res, next) {
     res.redirect('/scurry-activity/' + req.body.activity_name)
 })
 
-
+router.post('/edit-activity/:id', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+      res.redirect('/');
+      return;
+  }
+  var id = req.params.id;
+  var title = req.body.title;
+  var when = req.body.when;
+  var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+  var description = req.body.description;
+  query.updateEvent(id, title, when, city, state, zip, description )
+    .then(function(data) {
+        res.redirect('/dashboard');
+    });
+});
 
 module.exports = router;

@@ -66,5 +66,16 @@ module.exports = {
 
     getEventIDsByActivityID: function(id) {
       return Events().where('id', id)
+    },
+
+    updateEvent: function(id, title, when, city, state, zip, description){
+      return Events().where('id', id).update({
+        'title': title,
+        'when': when,
+        'state': state,
+        'city': city,
+        'zip': zip,
+        'description': description
+      });
     }
 }
