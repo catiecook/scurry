@@ -3,7 +3,7 @@ html, body{
   height: 100%;
   margin: 0;
   padding: 0;
-    background: url(/images/footer_lodyas.png)center center fixed;
+  /*background: url(/images/footer_lodyas.png)center center fixed;*/
 }
 
 .wraper {
@@ -91,7 +91,7 @@ a {
   text-align: center;
 }
 
-.dashboard-card{
+.dashboard-card {
   height: 40vh;
   margin-bottom: 6%;
   border-radius: 3%;

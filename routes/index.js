@@ -14,15 +14,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-<<<<<<< HEAD
-  res.render('login', {
-    title: 'Scurry' });
-    console.log("LONG" + req.body.lon);
-=======
     res.render('login', {
         title: 'Scurry'
     });
->>>>>>> 2637f84645bae2a7279ad5f8c50b2a16e5541ba5
 });
 
 router.get('/register', function(req, res, next) {
@@ -91,11 +85,6 @@ router.get('/create-activity', function(req, res, next) {
         })
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2637f84645bae2a7279ad5f8c50b2a16e5541ba5
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
     if (!req.isAuthenticated()) {
@@ -255,9 +244,6 @@ router.post('/edit-activity/:id', function(req, res, next) {
     .then(function(data) {
         res.redirect('/dashboard');
     })
-    // .catch(function(err) {
-  	// 	return next(err);
-  	// })
   })
 
 
@@ -274,8 +260,4 @@ router.post('/scurry-activity', function(req, res, next){
 //   console.log("we made it");
 // })
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2637f84645bae2a7279ad5f8c50b2a16e5541ba5
 module.exports = router;
