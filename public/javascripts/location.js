@@ -37,7 +37,7 @@ function displayLocation(lat,lon){
 }
 
 function getWeather(city, state) {
-  var url = 'http://api.wunderground.com/api/'+ weatherAPI +'/forecast/q/' + state + '/' + city + '.json';
+  var url = 'https://api.wunderground.com/api/'+ weatherAPI +'/forecast/q/' + state + '/' + city + '.json';
 
   $.get(url).then(function(data){
     for(var i=0; i<3; i++) {
