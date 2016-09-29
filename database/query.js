@@ -69,7 +69,7 @@ module.exports = {
 
     getEventIDsByActivityID: function(id) {
       return Events().where('activity_id', id)
-    }
+    },
 
     updateEvent: function(id, title, when, address, city, state, description){
       return Events().where('id', id).update({
