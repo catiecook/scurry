@@ -42,7 +42,7 @@ router.get('/dashboard', function(req, res, next) {
       title: 'Scurry',
       events: data,
       user: req.user.name,
-      key: process.env.weatherAPI,
+      weatherAPI: process.env.weatherAPI,
       photo: req.user.picture
     })
   })
