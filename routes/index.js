@@ -46,24 +46,28 @@ router.get('/dashboard', function(req, res, next) {
       photo: req.user.picture
     })
   })
+  .catch(function(err){
+    return next(err)
+  })
 })
 
 router.get('/find-activity', function(req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.redirect('/');
-        return;
-    }
-    query.getAllActivites()
-        .then(function(data) {
-            console.log(data)
-            res.render('find-activity', {
-                title: 'Scurry',
-                activity: data,
-                user_id: req.user.id
-            });
-        }).catch(function(err) {
-            return next(err);
-        })
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.getAllActivites()
+    .then(function(data) {
+      // console.log(data)
+      res.render('find-activity', {
+         title: 'Scurry',
+          activity: data,
+          user_id: req.user.id
+        });
+      })
+      .catch(function(err) {
+         return next(err);
+      })
 });
 
 router.get('/create-activity', function(req, res, next) {
@@ -85,17 +89,21 @@ router.get('/create-activity', function(req, res, next) {
 });
 
 //initial scurry-activity page intil a yes or no choice is made
-router.get('/scurry-activity', function(req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.redirect('/');
-        return;
-    }
+router.get('/scurry-activity/find/', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.getEventIDsByActivityID(req.query.id)
+  .then(function(data){
     res.render('scurry-activity', {
-        title: 'Scurry'
+      events: data,
+      title: "Scurry"
     });
+  })
 });
 
-//when no/next button is chosen the first time, it will route to this
+//when no/yes button is chosen the first time, it will route to this
 router.get('/scurry-activity/:id', function(req, res, next) {
     if (!req.isAuthenticated()) {
         res.redirect('/');
@@ -130,6 +138,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
             };
       });
 })
+
 router.get('/delete-activity/:id', function(req, res, next) {
         if (!req.isAuthenticated()) {
             res.redirect('/');
@@ -269,9 +278,5 @@ router.post('/scurry-activity', function(req, res, next){
   }
   res.redirect('/scurry-activity/' + req.body.activity_name)
 })
-
-// router.post('/scurry-activity/:id', function(req, res, next) {
-//   console.log("we made it");
-// })
 
 module.exports = router;
