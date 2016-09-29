@@ -200,5 +200,15 @@ text-align: center;
   font-size: 13px;
   font-weight: 300;
 }
-#target {
-  width: 345px;
+
+.headerLogo {
+  margin-top: -2%;
+  width: 10%;
+  height: auto;
+}
+
+.headerLogoIndex {
+  margin-top: -2%;
+  width: 15%;
+  height: auto;
+}
