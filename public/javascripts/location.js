@@ -19,7 +19,7 @@ locationPromise()
 //find city and state from gps coordinates
 function displayLocation(lat,lon){
     let positions = [] //empty array to hold city, state
-    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'&sensor=true';
+    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'&sensor=true&ssl=true';
     return $.get(url).then(function(data) {
 
       var addressComponents = data.results[0].address_components;
