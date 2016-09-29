@@ -134,6 +134,9 @@ text-align: center;
     width: auto\9; /* ie8 */
 }
 
+/*.hidden {
+  visibility: hidden;
+}*/
 #upcoming{
   height:33vh;
   display: block;
