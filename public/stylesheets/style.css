@@ -130,3 +130,15 @@ text-align: center;
   height:33vh;
   display: block;
 }
+
+.headerLogo {
+  margin-top: -2%;
+  width: 10%;
+  height: auto;
+}
+
+.headerLogoIndex {
+  margin-top: -2%;
+  width: 15%;
+  height: auto;
+}
