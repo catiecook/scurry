@@ -9,7 +9,11 @@
       <p>In {{city}} on {{when}}</p>
 
     </div>
-      <a href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
+    {{#if admin}}
+      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
+    {{else}}
+      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden">Delete {{title}}</a>
+    {{/if}}
   </div>
 
 

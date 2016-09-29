@@ -126,6 +126,9 @@ text-align: center;
   width: 20vw;
 }
 
+/*.hidden {
+  visibility: hidden;
+}*/
 #upcoming{
   height:33vh;
   display: block;
