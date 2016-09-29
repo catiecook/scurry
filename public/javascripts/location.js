@@ -1,7 +1,3 @@
-// var lat = document.getElementById("lat");
-// var lon = document.getElementById("lon");
-
-
 function locationPromise() {
   return new Promise(function(resolve, reject) {
     console.log("retreiving position.....");
@@ -63,9 +59,8 @@ function displayLocation(lat,lon){
   })
  };
 
-
 function getWeather(city, state) {
-  var url = 'http://api.wunderground.com/api/adfd7dc0d7a5f2f7/forecast/q/' + state + '/' + city + '.json';
+  var url = 'http://api.wunderground.com/api/'+ api +'/forecast/q/' + state + '/' + city + '.json';
 
   $.get(url).then(function(data){
     console.log("date: ", data["forecast"]["txt_forecast"]["date"]);
