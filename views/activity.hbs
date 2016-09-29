@@ -1,4 +1,4 @@
-<div class="wraper">
+<div class="wrapper">
   <div class='container-fliud'>
     <div class="card entry">
       <div class="card-block">
@@ -13,15 +13,16 @@
 
       </div>
 
-      {{#if admin}}
-        <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
-        <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-primary">Edit {{title}}</a>
-      {{else}}
-        <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden">Delete {{title}}</a>
-      {{/if}}
-
-
+        <!-- <a href="/delete-activity/{{id}}" class="btn btn-sm btn-danger">Delete {{title}}</a> -->
     </div>
+        <a href='/{{id}}/scurry-activity' class='btn btn-success'>join</a>
+    {{#if admin}}
+      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
+      <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-primary">Edit {{title}}</a>
+    {{else}}
+      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden">Delete {{title}}</a>
+    {{/if}}
+
 
 
   </div>

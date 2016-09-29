@@ -13,6 +13,11 @@ function Users() {
     return knex('users');
 }
 
+function EventUser(){
+  return knex('event_user')
+}
+
+
 module.exports = {
     getAllEvents: Events,
     getAllActivites: Activities,
@@ -77,5 +82,12 @@ module.exports = {
         'city': city,
         'description': description
       });
-    }
+    },
+
+    addUsertoEvent: function(event_id, users_id){
+   return EventUser().insert({
+     'event_id': event_id,
+     'users_id': users_id,
+   })
+ }
 }
