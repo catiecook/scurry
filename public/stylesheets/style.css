@@ -3,11 +3,13 @@ html, body{
   height: 100%;
   margin: 0;
   padding: 0;
+  /*background: url(/images/footer_lodyas.png)center center fixed;*/
 }
 
 .wrapper {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Slab', serif;
+  font-size: .9em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +83,7 @@ a {
 }
 
 /*Dashboard*/
-.dasboardbox{
+.dashboardbox{
   padding: 2% 1% 0 1%;
   background-color: white;
 }
@@ -90,7 +92,7 @@ a {
   text-align: center;
 }
 
-.dashboard-card{
+.dashboard-card {
   height: 40vh;
   margin-bottom: 6%;
   border-radius: 3%;
@@ -123,7 +125,19 @@ text-align: center;
   float: left;
 }
 
-#profile{
+.report {
+  margin-bottom: 10%;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: .8em;
+}
+
+.weatherTitle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#profile {
   display:flex;
   justify-content: center;
   align-items: center;
@@ -134,9 +148,7 @@ text-align: center;
     width: auto\9; /* ie8 */
 }
 
-/*.hidden {
-  visibility: hidden;
-}*/
+
 #upcoming{
   height:33vh;
   display: block;
@@ -146,6 +158,7 @@ text-align: center;
   flex: 1;
   height: 60%;
 }
+
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -187,5 +200,15 @@ text-align: center;
   font-size: 13px;
   font-weight: 300;
 }
-#target {
-  width: 345px;
+
+.headerLogo {
+  margin-top: -2%;
+  width: 10%;
+  height: auto;
+}
+
+.headerLogoIndex {
+  margin-top: -2%;
+  width: 15%;
+  height: auto;
+}

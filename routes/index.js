@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var weather = require('../public/javascripts/weather.js')
+var axios = require('axios');
 var query = require('../database/query');
 var knex = require('../database/knex');
-
+var api = process.env.weatherAPI;
+var cities = require('cities');
 
 //*********************
-// ******* GETS **********
+// ******* GETS *******
 
 router.get('/', function(req, res, next) {
     res.render('index');
@@ -31,22 +32,22 @@ router.get('/create-profile', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
+
   if (!req.isAuthenticated()) {
     res.redirect('/');
     return;
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
-  console.log(data);
     res.render('dashboard', {
       title: 'Scurry',
       events: data,
       user: req.user.name,
+      key: process.env.weatherAPI,
       photo: req.user.picture
     })
   })
 })
-
 
 router.get('/find-activity', function(req, res, next) {
     if (!req.isAuthenticated()) {
@@ -83,8 +84,6 @@ router.get('/create-activity', function(req, res, next) {
             return next(err);
         })
 });
-
-
 
 //initial scurry-activity page intil a yes or no choice is made
 router.get('/scurry-activity', function(req, res, next) {
@@ -259,9 +258,6 @@ router.post('/edit-activity/:id', function(req, res, next) {
     .then(function(data) {
         res.redirect('/dashboard');
     })
-    // .catch(function(err) {
-  	// 	return next(err);
-  	// })
   })
 
 
@@ -277,6 +273,5 @@ router.post('/scurry-activity', function(req, res, next){
 // router.post('/scurry-activity/:id', function(req, res, next) {
 //   console.log("we made it");
 // })
-
 
 module.exports = router;
