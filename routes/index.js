@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var query = require('../database/query');
 var knex = require('../database/knex');
-var api = process.env.weatherAPI;
 var cities = require('cities');
+require('dotenv').config();
 
 //*********************
 // ******* GETS *******
@@ -113,7 +113,8 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
-                    admin: true //made this false if not admin id below
+                    admin: true, //made this false if not admin id below
+                    googleAPI: process.env.googleAPI
                 })
             } else {
                 res.render('activity', {
