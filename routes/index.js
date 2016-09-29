@@ -35,13 +35,13 @@ router.get('/dashboard', function(req, res, next) {
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
 console.log(data);
-  res.render('dashboard', {
-    title: 'Scurry',
-    events: data,
-    user: req.user.name,
-    photo: req.user.picture
+    res.render('dashboard', {
+      title: 'Scurry',
+      events: data,
+      user: req.user.name,
+      photo: req.user.picture
+    })
   })
-})
 })
 
 
@@ -107,9 +107,9 @@ router.get('/scurry-activity/:id', function(req, res, next) {
         res.render('activity', {
           id: eventData.id,
           title: eventData.title,
+          address: eventData.address,
           city: eventData.city,
           state: eventData.state,
-          zip: eventData.zip,
           description: eventData.description,
           when: eventData.when.toDateString()
         })
@@ -143,8 +143,6 @@ router.get('/:id/delete',function(req,res, next){
   })
 });
 
-
-
 //*********************
 // ***** POSTS ********
 
@@ -170,12 +168,12 @@ router.post('/create-activity', function(req, res, next){
   var activity_id = req.body.activity_id;
 	var title = req.body.title;
   var when = req.body.when;
+  var address = req.body.address;
 	var city = req.body.city;
   var state = req.body.state;
-  var zip = req.body.zip;
 	var description = req.body.description;
 
-  query.addEvent(admin_id, activity_id, title, when, city, state, zip, description)
+  query.addEvent(admin_id, activity_id, title, when, address, city, state, description)
 	.then(function(data) {
     res.redirect('/dashboard')
 	})

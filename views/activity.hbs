@@ -1,19 +1,22 @@
-<div class='container-fliud'>
-  <div class="card entry">
-    <div class="card-block">
+<div class="wraper">
+  <div class='container-fliud'>
+    <div class="card entry">
+      <div class="card-block">
 
-      <h3 class="card-title text-uppercase">Scurry</h3>
-      <h5 class="card-text entry">{{title}}</h5>
+        <h3 class="card-title text-uppercase">Scurry</h3>
+        <h5 class="card-text entry">{{title}}</h5>
 
-      <p>Description: {{description}}</p>
-      <p>In {{city}} on {{when}}</p>
+        <p>Description: {{description}}</p>
+        <p>In {{city}} on {{when}}</p>
 
-      <img class='profilepic' src="https://source.unsplash.com/2100x1200/?{{title}}/" alt='image of thing'>
+        <img class='profilepic' src="https://source.unsplash.com/2100x1200/?{{title}}/" alt='image of thing'>
 
+      </div>
+
+        <a href="/delete-activity/{{id}}" class="btn btn-sm btn-danger">Delete {{title}}</a>
     </div>
-
-      <a href="/delete-activity/{{id}}" class="btn btn-sm btn-danger">Delete {{title}}</a>
   </div>
 
-
 </div>
+<input id="pac-input" class="controls" type="text" value="{{address}}{{city}}{{state}}">
+<div id="map"></div>

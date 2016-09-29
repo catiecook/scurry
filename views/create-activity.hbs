@@ -1,45 +1,47 @@
-<div class='container-fliud'>
-  <div class="card entry">
-    <div class="card-block">
+<<<<<<< HEAD
+<div class="wraper">
+  <div class='container-fliud'>
+    <div class="card entry">
+      <div class="card-block">
 
-      <h3 class="card-title text-uppercase">scurry</h3>
-      <br>
-      <h5 class="card-text entry">Create Activity: </h5>
-      <br>
+        <h3 class="card-title text-uppercase">Scurry</h3>
+        <br>
+        <h5 id='title' class="card-text entry">Create Activity:</h5>
+        <br>
 
-      <form action='/create-activity' method='post'>
-        <div class="form-group">
-         <label for="exampleSelect2">Choose a category</label>
-         <select class="form-control" id="category" name='category' required>
-           <option>Select One</option>
-           <option>Hike</option>
-           <option>Snow</option>
-           <option>Bike</option>
-           <option>Run</option>
-         </select>
-       </div>
-        <div class="form-group">
-          <label for="date">When</label>
-          <input type="date" class="form-control" name='date' placeholder="mm/dd/yyyy">
-        </div>
+        <form action='/create-activity' method='post'>
+          <input type="number" name="admin_id" hidden value={{user_id}}>
+          <div class="form-group">
 
-        <div class="form-group">
-          <label for="date">Where</label>
-          <input type="text" class="form-control" name='location' placeholder="City, State, Zip or name of area">
-        </div>
 
-        <div class="form-group">
-          <label for="date">Description</label>
-          <textarea class="form-control" name='description' placeholder="Tell us about what you're doing."></textarea>
-        </div>
-        <button type='submit' class="btn btn-primary">Search</button>
-      </form>
+           <select class="form-control" name='activity_id' required>
+             <option disabled selected hidden>Choose an Activity</option>
+              {{#each activity}}
+                <option value={{this.id}}>{{this.activity_name}}</option>
+              {{/each}}
+           </select>
 
+         </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="title" placeholder="Event Name">
+            <input type="date" class="form-control" name='when' placeholder="mm/dd/yyyy">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="address" placeholder="Street Address or Name of place">
+            <input type="text" class="form-control" name='city' placeholder="City">
+            <input type="text" class="form-control" name='state' placeholder="State">
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" name='description' placeholder="Tell us about what you're doing."></textarea>
+          </div>
+          <button type='submit' class="btn btn-primary">Scurry</button>
+        </form>
+      </div>
     </div>
+    <span class='other'><p>Want to find an Activity? <a href="/find-activity">Find Activity...</a>
+      <a href="/dashboard">(dashboard)</a>
+    </span>
   </div>
-
-  <span class='other'><p>Want to find an Activity?<a href="/find-activity"> Find Activity...</a>
-     <a href="/dashboard">(dashboard)</a> 
-  </span>
-
 </div>
