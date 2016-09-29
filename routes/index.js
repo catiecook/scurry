@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var axios = require('axios');
 var query = require('../database/query');
 var knex = require('../database/knex');
 var api = process.env.weatherAPI;
