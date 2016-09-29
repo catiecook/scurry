@@ -34,7 +34,7 @@ router.get('/dashboard', function(req, res, next) {
   }
   query.upcomingEventsByUsers(req.user.id)
   .then(function(data){
-
+console.log(data);
   res.render('dashboard', {
     title: 'Scurry',
     events: data,
