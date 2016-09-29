@@ -23,15 +23,15 @@ module.exports = {
         Activities().where('activity_name', name);
     },
 
-    addEvent: function(admin_id, activity_id, title, when, city, state, zip, description) {
+    addEvent: function(admin_id, activity_id, title, when, address, city, state, description) {
         return Events().insert({
             'admin_id': admin_id,
             'activity_id': activity_id,
             'title': title,
             'when': when,
+            'address':address,
             'state': state,
             'city': city,
-            'zip': zip,
             'description': description
         })
     },
@@ -66,5 +66,16 @@ module.exports = {
 
     getEventIDsByActivityID: function(id) {
       return Events().where('id', id)
+    },
+
+    updateEvent: function(id, title, when, address, city, state, description){
+      return Events().where('id', id).update({
+        'title': title,
+        'when': when,
+        'address': address,
+        'state': state,
+        'city': city,
+        'description': description
+      });
     }
 }
