@@ -184,6 +184,20 @@ router.get('/edit-activity/:id', function(req, res, next) {
             });
     });
 
+router.get('/:id/scurry-activity', function(req, res, next){
+    console.log("you")
+      if(!req.isAuthenticated()){
+        res.redirected('/');
+        return;
+      }
+      var event_id = req.params.id;
+      var user_id = req.user.id;
+      query.addUsertoEvent(event_id, user_id)
+      .then(function(){
+        res.redirect('/dashboard');
+      })
+    })
+
 //*********************
 // ***** POSTS ********
 
