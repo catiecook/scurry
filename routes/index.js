@@ -135,6 +135,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
+                    googleAPI: process.env.googleAPI,
                     admin: false,
                     noob: true
                 })
