@@ -1,8 +1,9 @@
 <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
 
-<div class="wrapper">
+<div id="wrapper">
   <div class='dashboardbox'>
     <h2 class='dashboard-h2'><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Hello {{user}}!</h2>
+    <hr>
     <br>
       <div class="row">
           <div class="col-xs-6 col-md-4">
@@ -53,8 +54,9 @@
               <div class='dashboard-card'>
                 <div class="card-block" id='upcoming'>
                   <h5>Hosting:</h5>
+                  <hr>
                   {{#each events}}
-                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
+                  <a href='/scurry-activity/{{this.id}}'><h6> {{this.title}} </h6></a><p>in {{this.city}}</p>
                   {{/each}}
                 </div>
               </div>
@@ -62,10 +64,10 @@
               <div class='dashboard-card'>
                 <div class="card-block" id='upcoming'>
                   <h5>Attending:</h5>
+                  <hr>
                   <!-- {{#each events}}
                   <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
                   {{/each}} -->
-                  <p class="card-text">You're Attending: </p>
                 </div>
               </div>
 

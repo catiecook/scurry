@@ -1,34 +1,34 @@
-<div class="wrapper">
+<div id="wrapper">
   <div class='container-fliud'>
     <div class="card entry">
       <div class="card-block">
 
-        <h3 class="card-title text-uppercase"><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Scurry</h3>
-        <h5 class="card-text entry">{{title}}</h5>
-
+        <a href='/dashboard'><h3 class="card-title text-uppercase"><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Scurry</h3>
+        <hr>
+        <h5 class="card-text entry">{{title}}</h5></a>
+        <br>
         <p>Description: {{description}}</p>
         <p>In {{city}} on {{when}}</p>
 
         <img class='profilepic' src="https://source.unsplash.com/2100x1200/?{{title}}/" alt='image of thing'>
-
       </div>
-
         <!-- <a href="/delete-activity/{{id}}" class="btn btn-sm btn-danger">Delete {{title}}</a> -->
+        <br>
     </div>
-
+    <span class='other'>
           {{#if noob}}
-        <a href='/{{id}}/scurry-activity' class='btn btn-success'>join</a>
-            {{else}}
+            <a href='/{{id}}/scurry-activity' class='btn btn-success'>join</a>
+            <a id='deletebtn' href="/dashboard" class="btn btn-warning">Home</a>
+          {{else}}
           {{/if}}
-    {{#if admin}}
-      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
-      <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-primary">Edit {{title}}</a>
-    {{else}}
-      <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden">Delete {{title}}</a>
-    {{/if}}
-
-
-
+          {{#if admin}}
+            <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete</a>
+            <a id='deletebtn' href="/dashboard" class="btn btn-warning">Home</a>
+            <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-info">Edit</a>
+          {{else}}
+            <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger hidden"> Delete </a>
+          {{/if}}
+    </span>
   </div>
 
 </div>

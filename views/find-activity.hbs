@@ -1,9 +1,10 @@
-<div class="wrapper">
+<div id="wrapper">
   <div class='container-fliud'>
     <div class="card entry">
       <div class="card-block">
 
-        <h3 class="card-title text-uppercase"><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>scurry</h3>
+        <a href='/dashboard'><h3 class="card-title text-uppercase"><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>scurry</h3></a>
+        <hr>
         <br>
         <h5 id='title' class="card-text entry">Find Activity: </h5>
         <br>
@@ -17,14 +18,14 @@
              {{/each}}
            </select>
          </div>
-        
-          <button type='submit' class="btn btn-primary">Scurry</button>
+
+          <button type='submit' class="btn btn-info">Scurry</button>
         </form>
 
       </div>
+      <span class='other'><p>Want to create an event? <a href="/create-activity"><u>Create Activity...</u></a>
+      </span>
     </div>
-  <span class='other'><p>Want to create an event? <a href="/create-activity">Create Activity...</a>
-  <p>  <a href="/dashboard">Dashboard</a></p>
-  </span>
+
   </div>
 </div>
