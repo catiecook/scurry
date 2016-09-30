@@ -48,7 +48,7 @@ router.get('/dashboard', function(req, res, next) {
           key: process.env.weatherAPI,
           photo: req.user.picture
 
-          //joinData[0].event_title
+          
         })
       })
 
@@ -63,7 +63,6 @@ router.get('/find-activity', function(req, res, next) {
   }
   query.getAllActivites()
     .then(function(data) {
-      // console.log(data)
       res.render('find-activity', {
          title: 'Scurry',
           activity: data,

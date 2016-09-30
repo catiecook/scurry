@@ -1,5 +1,4 @@
 <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-
 <div class="wrapper">
   <div class='dashboardbox'>
     <h2 class='dashboard-h2'><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Hello {{user}}!</h2>
@@ -26,24 +25,12 @@
                     </div>
                 </div></a>
 
-<<<<<<< HEAD
-                <div class='dashboard-card'>
-                  {{#each join}}
-                  <p>{{this.event_title}}</p>
-                  <p>{{this.event_when}}</p>
-                  {{/each}}
-                  <div class="card-block" id='upcoming'>
-                    <h5>Upcoming</h5>
-
-                    <p class="card-text">Your Activities: </p>
-                    {{#each events}}
-                    <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
-
-                    {{/each}}
-
-                  </div>
-                </div>
-              </div>
+                <a href='/'><div class='dashboard-card button'>
+                    <div class="card-block" id='create'>
+                        <h5>Logout</h5>
+                        <span class='photo-results'></span>
+                    </div>
+                </div></a>
             </div>
           </div>
 
@@ -66,18 +53,21 @@
                 <div class="card-block" id='upcoming'>
                   <h5>Hosting:</h5>
                   {{#each events}}
-                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
-                  {{/each}}
+                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p>
+                  {{/each}}</a>
                 </div>
               </div>
 
               <div class='dashboard-card'>
                 <div class="card-block" id='upcoming'>
                   <h5>Attending:</h5>
-                  <!-- {{#each events}}
-                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
-                  {{/each}} -->
-                  <p class="card-text">You're Attending: </p>
+                  <a href='/scurry-activity/{{this.id}}'>
+                  {{#each join}}
+                 <p>{{this.event_title}}</p>
+                 <p>{{this.event_when}}</p>
+                 {{/each}}</a>
+
+
                 </div>
               </div>
 
