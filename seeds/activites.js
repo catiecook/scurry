@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries
         knex('activity').insert({activity_name: 'Hiking'}),
-        knex('activity').insert({activity_name: 'Snowboarding'}),
+        knex('activity').insert({activity_name: 'Snowboard/Ski'}),
         knex('activity').insert({activity_name: 'Running'}),
         knex('activity').insert({activity_name: 'Biking'}),
       ]);

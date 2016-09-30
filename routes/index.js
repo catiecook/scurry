@@ -45,10 +45,10 @@ router.get('/dashboard', function(req, res, next) {
           events: data,
           user: req.user.name,
           join: joinData,
-          key: process.env.weatherAPI,
+          weatherAPI: process.env.weatherAPI,
           photo: req.user.picture
 
-          
+
         })
       })
 
