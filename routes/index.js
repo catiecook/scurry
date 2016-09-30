@@ -4,6 +4,7 @@ var query = require('../database/query');
 var knex = require('../database/knex');
 require('dotenv').config();
 var api = process.env.weatherAPI;
+
 //*********************
 // ******* GETS *******
 
@@ -36,19 +37,24 @@ router.get('/dashboard', function(req, res, next) {
     return;
   }
   query.upcomingEventsByUsers(req.user.id)
-  .then(function(data){
-    res.render('dashboard', {
-      title: 'Scurry',
-      events: data,
-      user: req.user.name,
-      weatherAPI: process.env.weatherAPI,
-      photo: req.user.picture
+    .then(function(data){
+      query.upcomingEventsByJoiner(req.user.id)
+      .then(function(joinData){
+        res.render('dashboard', {
+          title: 'Scurry',
+          events: data,
+          user: req.user.name,
+          join: joinData,
+          key: process.env.weatherAPI,
+          photo: req.user.picture
+
+          
+        })
+      })
+
     })
-  })
-  .catch(function(err){
-    return next(err)
-  })
 })
+
 
 router.get('/find-activity', function(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -57,7 +63,6 @@ router.get('/find-activity', function(req, res, next) {
   }
   query.getAllActivites()
     .then(function(data) {
-      // console.log(data)
       res.render('find-activity', {
          title: 'Scurry',
           activity: data,
@@ -198,11 +203,16 @@ router.get('/:id/scurry-activity', function(req, res, next){
         res.redirected('/');
         return;
       }
-      var event_id = req.params.id;
-      var user_id = req.user.id;
-      query.addUsertoEvent(event_id, user_id)
-      .then(function(){
-        res.redirect('/dashboard');
+      query.getEventInfoByID(req.params.id)
+      .then(function(eventData){
+        var event_title = eventData[0].title;
+        var event_when = eventData[0].when.toDateString();
+        var event_id = req.params.id;
+        var user_id = req.user.id;
+        query.addUsertoEvent(event_id, user_id, event_title, event_when)
+        .then(function(data){
+          res.redirect('/dashboard')
+        })
       })
     })
 
