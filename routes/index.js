@@ -47,11 +47,8 @@ router.get('/dashboard', function(req, res, next) {
           join: joinData,
           weatherAPI: process.env.weatherAPI,
           photo: req.user.picture
-
-
         })
       })
-
     })
 })
 

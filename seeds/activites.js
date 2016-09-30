@@ -9,6 +9,7 @@ exports.seed = function(knex, Promise) {
         knex('activity').insert({activity_name: 'Snowboard/Ski'}),
         knex('activity').insert({activity_name: 'Running'}),
         knex('activity').insert({activity_name: 'Biking'}),
+        knex('activity').insert({activity_name: 'Other'}),
       ]);
     });
 };

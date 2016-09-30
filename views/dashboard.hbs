@@ -25,7 +25,6 @@
                         </span>
                     </div>
                 </div></a>
-
                 <a href='/'><div class='dashboard-card button'>
                     <div class="card-block" id='create'>
                         <h5>Logout</h5>
@@ -50,26 +49,24 @@
           </div>
         <div class="col-xs-6 col-md-4">
             <div class='card-deck'>
-              <div class='dashboard-card'>
+              <div class='dashboard-card attending'>
                 <div class="card-block" id='upcoming'>
                   <h5>Hosting:</h5>
                   <hr>
                   {{#each events}}
                   <a href='/scurry-activity/{{this.id}}'><h6> {{this.title}} </h6></a><p>in {{this.city}}</p>
                   {{/each}}
-
                 </div>
               </div>
-
               <div class='dashboard-card'>
                 <div class="card-block" id='upcoming'>
                   <h5>Attending:</h5>
+                  <hr>
                   <a href='/scurry-activity/{{this.id}}'>
                   {{#each join}}
                  <p>{{this.event_title}}</p>
                  <p>{{this.event_when}}</p>
                  {{/each}}</a>
-
                 </div>
               </div>
 
