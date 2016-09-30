@@ -105,6 +105,7 @@ html, body{
 
 .card-block{
   text-align: center;
+  min-height: 80%;
 }
 
 .dashboard-card {

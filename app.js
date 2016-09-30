@@ -90,11 +90,22 @@ app.get('/auth/facebook/callback',
 
 
 // catch 404 and forward to error handler
+
+app.get('/logout', function(req, res){
+ req.logout();
+ setTimeout(function() {
+   res.redirect("/");
+ }, 500)
+
+});
+
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+
 
 // error handlers
 
