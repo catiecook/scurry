@@ -156,6 +156,7 @@ text-align: center;
 #upcoming{
   height: 30%;
   display: block;
+  overflow-y: scroll
 }
 
 #map {

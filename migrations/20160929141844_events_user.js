@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.integer('event_id').references('id').inTable('event').onDelete('CASCADE');
     table.integer('users_id').references('id').inTable('users').onDelete('CASCADE');
+    table.string('event_title');
+    table.string('event_when');
   })
 };
 

@@ -47,6 +47,10 @@ module.exports = {
        return Events().where('admin_id', id)
    },
 
+   upcomingEventsByJoiner: function(id){
+     return EventUser().where('users_id', id)
+   },
+
     getEventByLocation: function(location) {
         return Events().where('location', location);
     },
@@ -82,10 +86,12 @@ module.exports = {
       });
     },
 
-    addUsertoEvent: function(event_id, users_id){
+    addUsertoEvent: function(event_id, users_id, event_title, event_when){
    return EventUser().insert({
      'event_id': event_id,
      'users_id': users_id,
+     'event_title': event_title,
+     'event_when': event_when
    })
  }
 }
