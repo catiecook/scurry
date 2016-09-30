@@ -23,7 +23,7 @@ html, body{
 
 #wrapper a:hover {
   text-decoration: none;
-  cursor: cell;
+  cursor: pointer;
 }
 
 #wrapper .dashboard-card a {
@@ -95,13 +95,6 @@ html, body{
   margin-bottom: 3%;
 }
 
-.slick-arrow {
-  color: #444;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  align-items: stretch;
-}
 .scurry-image{
   margin: 2% 0;
   z-index: 0
@@ -268,4 +261,8 @@ text-align: center;
   margin-top: -2%;
   width: 15%;
   height: auto;
+}
+
+.slick-next:before, .slick-prev:before{
+ color: black;
 }
