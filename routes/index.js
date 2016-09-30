@@ -2,8 +2,13 @@ var express = require('express');
 var router = express.Router();
 var query = require('../database/query');
 var knex = require('../database/knex');
+<<<<<<< HEAD
 var cities = require('cities');
 require('dotenv').config();
+=======
+var api = process.env.weatherAPI;
+
+>>>>>>> 51f337a92fa4a24c283f5ef111c81c9fddb4a985
 
 //*********************
 // ******* GETS *******
@@ -123,6 +128,7 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     when: eventData.when.toDateString(),
                     admin: true, //made this false if not admin id below
                     googleAPI: process.env.googleAPI
+                    noob: false
                 })
             } else {
                 res.render('activity', {
@@ -133,7 +139,8 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
-                    admin: false
+                    admin: false,
+                    noob: true
                 })
             };
       });
@@ -193,7 +200,6 @@ router.get('/edit-activity/:id', function(req, res, next) {
     });
 
 router.get('/:id/scurry-activity', function(req, res, next){
-    console.log("you")
       if(!req.isAuthenticated()){
         res.redirected('/');
         return;

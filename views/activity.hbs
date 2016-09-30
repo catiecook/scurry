@@ -15,7 +15,11 @@
 
         <!-- <a href="/delete-activity/{{id}}" class="btn btn-sm btn-danger">Delete {{title}}</a> -->
     </div>
+
+          {{#if noob}}
         <a href='/{{id}}/scurry-activity' class='btn btn-success'>join</a>
+            {{else}}
+          {{/if}}
     {{#if admin}}
       <a id='deletebtn' href="/delete-activity/{{id}}" class="btn btn-danger">Delete {{title}}</a>
       <a id='deletebtn' href="/edit-activity/{{id}}" class="btn btn-primary">Edit {{title}}</a>
