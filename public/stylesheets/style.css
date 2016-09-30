@@ -94,18 +94,19 @@ a {
 }
 
 .dashboard-card {
-  height: 30%;
+  height: 30vw;
+  height: 25vw;
   margin-bottom: 6%;
   border-radius: 3%;
   -webkit-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
   box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  overflow: scroll;
 }
 
 .middle {
-  height: 58%;
+  height: 52vw;
   padding-bottom: 0;
-  max-height: 60%;
 }
 
 .button {
@@ -114,7 +115,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 15vh;
+  height: 7.5vw;
 }
 
 .dashboard-h2{
