@@ -85,6 +85,7 @@ a {
 /*Dashboard*/
 .dashboardbox{
   padding: 2% 1% 0 1%;
+  border-radius: 2%;
   background-color: white;
 }
 
@@ -93,7 +94,7 @@ a {
 }
 
 .dashboard-card {
-  height: 33vh;
+  height: 30%;
   margin-bottom: 6%;
   border-radius: 3%;
   -webkit-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
@@ -102,7 +103,9 @@ a {
 }
 
 .middle {
-  height: 70vh;
+  height: 58%;
+  padding-bottom: 0;
+  max-height: 60%;
 }
 
 .button {
@@ -111,13 +114,14 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 15vh;
 }
 
 .dashboard-h2{
 text-align: center;
 }
 
-.form-control{
+.form-control {
   margin-bottom: 5%;
 }
 
@@ -148,9 +152,8 @@ text-align: center;
     width: auto\9; /* ie8 */
 }
 
-
 #upcoming{
-  height:33vh;
+  height: 30%;
   display: block;
 }
 
