@@ -9,7 +9,7 @@ html, body{
 #wrapper {
   padding: 50px;
   font-family: 'Roboto Slab', serif;
-  font-size: .9em;
+  font-size: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
