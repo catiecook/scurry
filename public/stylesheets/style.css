@@ -95,6 +95,35 @@ html, body{
   margin-bottom: 3%;
 }
 
+.slick-arrow {
+  color: #444;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.scurry-image{
+  margin: 2% 0;
+  z-index: 0
+}
+
+.scurry-button{
+  z-index: 300;
+}
+
+.scurry-card {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  height: 30vw;
+  margin-bottom: 6%;
+  border-radius: 3%;
+  -webkit-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,0.75);
+  max-height: 30vw;
+}
+
 /*Dashboard*/
 .dashboardbox{
   padding: 2% 1% 0 1%;

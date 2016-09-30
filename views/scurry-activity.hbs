@@ -2,7 +2,6 @@
   <div class='container-fliud'>
     <div class="card entry">
       <div class="card-block">
-
         <a href='/dashboard'><h3 class="card-title text-uppercase"><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>scurry</h3></a>
         <hr>
         <br>
@@ -10,17 +9,23 @@
           {{#each events}}
           <div class='row'>
             <div class='card-deck'>
-            <div class='dashboard-card'>
-              <h5>{{this.title}}</h5>
-
-              <span><a href="/scurry-activity/{{this.id}}" class="btn btn-info">yes</a></span>
-              
-            </div>
+              <br>
+              <div class='display-card'>
+                <div>
+                  <h4>{{this.title}}</h4>
+                </div>
+                <div>
+                  <img class='profilepic scurry-image' src="https://source.unsplash.com/2100x1200/?{{this.title}}/" alt='image of thing'>
+                </div>
+                <div>
+                  <span><a href="/scurry-activity/{{this.id}}" class="btn btn-sm btn-info scurry-button">Info</a></span>
+                </div>
+              </div>
             </div>
           </div>
-
           {{/each}}
         </div>
+
       </div>
       <span class='other'><p>Want to create an activity? <a href="/create-activity">Create Activity...</a>
       </span>
