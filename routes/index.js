@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var query = require('../database/query');
 var knex = require('../database/knex');
+require('dotenv').config();
 var api = process.env.weatherAPI;
 
 //*********************
@@ -56,21 +57,22 @@ router.get('/dashboard', function(req, res, next) {
 
 
 router.get('/find-activity', function(req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.redirect('/');
-        return;
-    }
-    query.getAllActivites()
-        .then(function(data) {
-            console.log(data)
-            res.render('find-activity', {
-                title: 'Scurry',
-                activity: data,
-                user_id: req.user.id
-            });
-        }).catch(function(err) {
-            return next(err);
-        })
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.getAllActivites()
+    .then(function(data) {
+      // console.log(data)
+      res.render('find-activity', {
+         title: 'Scurry',
+          activity: data,
+          user_id: req.user.id
+        });
+      })
+      .catch(function(err) {
+         return next(err);
+      })
 });
 
 router.get('/create-activity', function(req, res, next) {
@@ -92,17 +94,21 @@ router.get('/create-activity', function(req, res, next) {
 });
 
 //initial scurry-activity page intil a yes or no choice is made
-router.get('/scurry-activity', function(req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.redirect('/');
-        return;
-    }
+router.get('/scurry-activity/find/', function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
+  query.getEventIDsByActivityID(req.query.id)
+  .then(function(data){
     res.render('scurry-activity', {
-        title: 'Scurry'
+      events: data,
+      title: "Scurry"
     });
+  })
 });
 
-//when no/next button is chosen the first time, it will route to this
+//when no/yes button is chosen the first time, it will route to this
 router.get('/scurry-activity/:id', function(req, res, next) {
     if (!req.isAuthenticated()) {
         res.redirect('/');
@@ -120,7 +126,9 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
-                    admin: true //made this false if not admin id below
+                    admin: true, //made this false if not admin id below
+                    googleAPI: process.env.googleAPI,
+                    noob: false
                 })
             } else {
                 res.render('activity', {
@@ -131,11 +139,13 @@ router.get('/scurry-activity/:id', function(req, res, next) {
                     address: eventData.address,
                     description: eventData.description,
                     when: eventData.when.toDateString(),
-                    admin: false
+                    admin: false,
+                    noob: true
                 })
             };
       });
 })
+
 router.get('/delete-activity/:id', function(req, res, next) {
         if (!req.isAuthenticated()) {
             res.redirect('/');
@@ -190,7 +200,6 @@ router.get('/edit-activity/:id', function(req, res, next) {
     });
 
 router.get('/:id/scurry-activity', function(req, res, next){
-    console.log("you")
       if(!req.isAuthenticated()){
         res.redirected('/');
         return;
@@ -280,9 +289,5 @@ router.post('/scurry-activity', function(req, res, next){
   }
   res.redirect('/scurry-activity/' + req.body.activity_name)
 })
-
-// router.post('/scurry-activity/:id', function(req, res, next) {
-//   console.log("we made it");
-// })
 
 module.exports = router;

@@ -19,7 +19,7 @@ locationPromise()
 //find city and state from gps coordinates
 function displayLocation(lat,lon){
     let positions = [] //empty array to hold city, state
-    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'&sensor=true';
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'&sensor=true&ssl=true';
     return $.get(url).then(function(data) {
 
       var addressComponents = data.results[0].address_components;
@@ -37,7 +37,7 @@ function displayLocation(lat,lon){
 }
 
 function getWeather(city, state) {
-  var url = 'http://api.wunderground.com/api/'+ api +'/forecast/q/' + state + '/' + city + '.json';
+  var url = 'https://api.wunderground.com/api/'+ weatherAPI +'/forecast/q/' + state + '/' + city + '.json';
 
   $.get(url).then(function(data){
     for(var i=0; i<3; i++) {

@@ -18,6 +18,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 
 var app = express();
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -54,7 +56,8 @@ passport.use(new FacebookStrategy({
           name: profile.displayName
         }
 // set user in session
-        knex('users').insert(user).then(function (resp) {
+        knex('users').returning('id').insert(user).then(function (resp) {
+          user.id = resp[0]
           callback(null, user)
         })
       } else {
@@ -72,7 +75,7 @@ passport.serializeUser(function(user, done) {
   done(null, user);
 });
 passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+  done(null,obj);
 });
 
 

@@ -5,19 +5,28 @@
     <h2 class='dashboard-h2'><img src="/images/scurrylogo.gif" alt='scurry logo' class='headerLogo'>Hello {{user}}!</h2>
     <br>
       <div class="row">
-
-          <div id='rightrow' class="col-xs-6 col-md-4">
+          <div class="col-xs-6 col-md-4">
               <div class='card-deck'>
-
                 <div class='dashboard-card'>
                     <div class="card-block" id='porfile'>
-                        <!-- <h5>Profile Info</h5> -->
                         <img class='profilepic' src={{photo}}>
-                        <!-- <span class='weather-results'>
-                        </span> -->
                     </div>
                 </div>
+                <a href='/create-activity'><div class='dashboard-card button'>
+                    <div class="card-block" id='create'>
+                        <h5>Create Activity</h5>
+                        <span class='photo-results'></span>
+                    </div>
+                </div></a>
+                <a href='/find-activity'><div class='dashboard-card button'>
+                    <div class="card-block" id='find'>
+                        <h5>Find Activity</h5>
+                        <span class='photo-results'>
+                        </span>
+                    </div>
+                </div></a>
 
+<<<<<<< HEAD
                 <div class='dashboard-card'>
                   {{#each join}}
                   <p>{{this.event_title}}</p>
@@ -32,12 +41,11 @@
 
                     {{/each}}
 
-                    <!-- <p class="card-text">You're Attending: </p> -->
                   </div>
                 </div>
               </div>
             </div>
-
+          </div>
 
           <div id='middlerow' class="col-xs-6 col-md-4">
               <div class='card-deck'>
@@ -52,25 +60,30 @@
                   </div>
               </div>
           </div>
-
-          <div id='rightrow' class="col-xs-6 col-md-4">
-              <div class='card-deck'>
-                  <a href='/create-activity'><div class='dashboard-card button'>
-                      <div class="card-block" id='create'>
-                          <h5>Create Activity</h5>
-                          <span class='photo-results'></span>
-                      </div>
-                  </div></a>
-                  <a href='/find-activity'><div class='dashboard-card button'>
-                      <div class="card-block" id='find'>
-                          <h5>Find Activity</h5>
-                          <span class='photo-results'>
-                          </span>
-                      </div>
-                  </div></a>
+        <div class="col-xs-6 col-md-4">
+            <div class='card-deck'>
+              <div class='dashboard-card'>
+                <div class="card-block" id='upcoming'>
+                  <h5>Hosting:</h5>
+                  {{#each events}}
+                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
+                  {{/each}}
+                </div>
               </div>
-          </div>
 
-      </div>
-  </div>
+              <div class='dashboard-card'>
+                <div class="card-block" id='upcoming'>
+                  <h5>Attending:</h5>
+                  <!-- {{#each events}}
+                  <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
+                  {{/each}} -->
+                  <p class="card-text">You're Attending: </p>
+                </div>
+              </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 </div>

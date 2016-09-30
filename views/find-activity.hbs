@@ -8,28 +8,23 @@
         <h5 id='title' class="card-text entry">Find Activity: </h5>
         <br>
 
-
-      <form action='/scurry-activity/{{id}}' method='post'>
-        <div class="form-group">
-         <select class="form-control" id="category" name='activity_name' required>
-           <option>Choose an Activity</option>
-           {{#each activity}}
-            <option name="selected" value={{this.id}}>{{this.activity_name}}</option>
-           {{/each}}
-         </select>
-       </div>
-        <div class="form-group">
-          <input type="date" class="form-control" name='date' placeholder="mm/dd/yyyy">
-        </div>
-
-
+        <form action='/scurry-activity/find/' method='get'>
+          <div class="form-group">
+           <select class="form-control" id="category" name='id' required>
+             <option>Choose an Activity</option>
+             {{#each activity}}
+              <option name="act_id" value="{{this.id}}">{{this.activity_name}}</option>
+             {{/each}}
+           </select>
+         </div>
+        
           <button type='submit' class="btn btn-primary">Scurry</button>
         </form>
 
       </div>
     </div>
   <span class='other'><p>Want to create an event? <a href="/create-activity">Create Activity...</a>
-  <p>  <a href="/dashboard">(dashboard)</a></p>
+  <p>  <a href="/dashboard">Dashboard</a></p>
   </span>
   </div>
 </div>
