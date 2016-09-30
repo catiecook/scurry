@@ -19,12 +19,19 @@
                 </div>
 
                 <div class='dashboard-card'>
+                  {{#each join}}
+                  <p>{{this.event_title}}</p>
+                  <p>{{this.event_when}}</p>
+                  {{/each}}
                   <div class="card-block" id='upcoming'>
                     <h5>Upcoming</h5>
+
                     <p class="card-text">Your Activities: </p>
                     {{#each events}}
                     <a href='/scurry-activity/{{this.id}}'><p> {{this.title}} in {{this.city}}</p> </a>
+
                     {{/each}}
+
                     <!-- <p class="card-text">You're Attending: </p> -->
                   </div>
                 </div>

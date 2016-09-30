@@ -150,8 +150,9 @@ text-align: center;
 
 
 #upcoming{
-  height:33vh;
+  height: 33vh;
   display: block;
+  overflow-y: scroll
 }
 
 #map {
